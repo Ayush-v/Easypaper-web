@@ -1,3 +1,4 @@
+import { HelmetProvider } from "react-helmet-async";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Board from "./pages/Board";
@@ -11,19 +12,21 @@ import University from "./pages/University";
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <Navbar />
+      <HelmetProvider>
+        <BrowserRouter>
+          <Navbar />
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/university" element={<University />} />
-          <Route path="/board" element={<Board />} />
-          <Route path="/govt" element={<GovtExam />} />
-        </Routes>
-      </BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/university" element={<University />} />
+            <Route path="/board" element={<Board />} />
+            <Route path="/govt" element={<GovtExam />} />
+          </Routes>
+        </BrowserRouter>
+      </HelmetProvider>
     </>
   );
 }

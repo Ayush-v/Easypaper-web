@@ -12,14 +12,14 @@ const Navbar = () => {
   const [show, setShow] = useState(false);
 
   return (
-    <>
+    <div className="fixed top-0 z-50 w-full mx-auto bg-white/[0.2] backdrop-blur-xl">
       <header className="flex justify-between items-center max-w-[1234px] mx-auto h-[60px] p-8">
         <Link to="/">
           <Easlog />
         </Link>
 
         <button
-          className="md:hidden absolute top-6 right-6"
+          className="md:hidden absolute top-[4.5] right-6"
           aria-controls="primary-navigation"
           aria-expanded="false"
           onClick={() => setShow(!show)}
@@ -34,7 +34,7 @@ const Navbar = () => {
         <nav
           id="primary-navigation"
           data-visible={show ? "true" : "false"}
-          className="absolute top-14 right-6 md:relative md:top-0 md:right-0 flex flex-col items-center md:flex-row md:w-full w-52 bg-white shadow-lg rounded-lg mt-2 md:bg-none md:shadow-none divide-y md:divide-y-0 divide-gray-100 primary-navigation z-50"
+          className="absolute top-12 right-6 md:relative md:top-0 md:right-0 flex flex-col items-center md:flex-row md:w-full w-52  shadow-lg rounded-lg mt-2 md:shadow-none divide-y md:divide-y-0 divide-gray-100 primary-navigation z-50 bg-white md:bg-transparent"
         >
           <ul className="flex flex-col md:flex-row md:mx-auto md:gap-3 md:divide-y-0 divide-y divide-gray-100 w-full md:w-auto md:p-0 p-1">
             <li className="px-4 py-4">
@@ -191,7 +191,7 @@ const Navbar = () => {
           </div>
         </nav>
       </header>
-    </>
+    </div>
   );
 };
 

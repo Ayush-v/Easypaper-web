@@ -9,10 +9,18 @@ body {
 }
 
 @media (max-width: 768px) {
+  .primary-navigation {
+    transition: 0.3s ease-in-out;
+  }
+
   .primary-navigation[data-visible="true"] {
+    opacity: 1;
+    transform: skewY(0) rotate(0) translateY(0);
     visibility: visible;
   }
   .primary-navigation[data-visible="false"] {
+    opacity: 0;
+    transform: skewY(-5deg) rotate(5deg) translateY(-20px);
     visibility: hidden;
   }
 }

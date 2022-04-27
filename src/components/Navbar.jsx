@@ -34,9 +34,9 @@ const Navbar = () => {
         <nav
           id="primary-navigation"
           data-visible={show ? "true" : "false"}
-          className="absolute top-14 right-6 md:relative md:top-0 md:right-0 flex flex-col items-center md:flex-row md:w-full w-40 bg-white shadow-lg rounded-lg mt-2 md:bg-none md:shadow-none divide-y md:divide-y-0 divide-gray-100 primary-navigation z-50"
+          className="absolute top-14 right-6 md:relative md:top-0 md:right-0 flex flex-col items-center md:flex-row md:w-full w-52 bg-white shadow-lg rounded-lg mt-2 md:bg-none md:shadow-none divide-y md:divide-y-0 divide-gray-100 primary-navigation z-50"
         >
-          <ul className="flex flex-col md:flex-row md:mx-auto md:gap-3 md:divide-y-0 divide-y divide-gray-100">
+          <ul className="flex flex-col md:flex-row md:mx-auto md:gap-3 md:divide-y-0 divide-y divide-gray-100 w-full md:w-auto md:p-0 p-1">
             <li className="px-4 py-4">
               <Menu as="div" className="relative inline-block text-left">
                 <Menu.Button className="inline-flex items-center">

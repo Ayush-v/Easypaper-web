@@ -7,7 +7,11 @@ const University = () => {
       <Helmet>
         <title>University | Easypaper</title>
       </Helmet>
-      <div>University</div>
+      <section className="my-16 px-8 py-8">
+        <div>
+          <h1>University Page</h1>
+        </div>
+      </section>
     </div>
   );
 };

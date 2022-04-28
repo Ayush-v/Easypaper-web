@@ -1,5 +1,6 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment, useEffect } from "react";
 import { Menu, Transition } from "@headlessui/react";
+import { useLocation } from "react-router-dom";
 
 import { ChevronDownIcon, MenuAlt1Icon, XIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
@@ -11,11 +12,28 @@ function classNames(...classes) {
 const Navbar = () => {
   const [show, setShow] = useState(false);
 
+  const [navHide, setNavHide] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname === "/signup" || location.pathname === "/login") {
+      setNavHide(true);
+    } else {
+      setNavHide(false);
+    }
+  }, [navHide, location]);
+
   return (
-    <div className="fixed top-0 z-50 w-full mx-auto bg-white/[0.2] backdrop-blur-xl">
-      <header className="flex justify-between items-center max-w-[1234px] mx-auto h-[60px] p-8">
-        <Link to="/">
+    <header
+      className={classNames(
+        navHide ? "hidden" : "visible",
+        "fixed top-0 z-50 w-full mx-auto bg-white/[0.4] backdrop-blur-xl"
+      )}
+    >
+      <div className="flex justify-between items-center max-w-[1234px] mx-auto h-[60px] p-8">
+        <Link to="/" className="flex items-center gap-2">
           <Easlog />
+          {/* <h1 className="text-2xl">EasyPaper</h1> */}
         </Link>
 
         <button
@@ -190,8 +208,8 @@ const Navbar = () => {
             </Link>
           </div>
         </nav>
-      </header>
-    </div>
+      </div>
+    </header>
   );
 };
 
@@ -238,9 +256,9 @@ const Easlog = () => {
           width="17.402"
           height="14.6952"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -273,9 +291,9 @@ const Easlog = () => {
           width="16.8555"
           height="27.0181"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -308,9 +326,9 @@ const Easlog = () => {
           width="17.2241"
           height="14.688"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -344,10 +362,10 @@ const Easlog = () => {
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(21 21) rotate(45) scale(29.6985)"
         >
-          <stop stop-color="#314BD5" />
-          <stop offset="0.3125" stop-color="#2451F0" />
-          <stop offset="0.666667" stop-color="#3E6ADB" />
-          <stop offset="1" stop-color="#3186D5" />
+          <stop stopColor="#314BD5" />
+          <stop offset="0.3125" stopColor="#2451F0" />
+          <stop offset="0.666667" stopColor="#3E6ADB" />
+          <stop offset="1" stopColor="#3186D5" />
         </radialGradient>
       </defs>
     </svg>

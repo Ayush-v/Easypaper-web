@@ -5,7 +5,7 @@ import lines from "../../assets/lines.png";
 const Herosection = () => {
   return (
     <>
-      <section className="flex flex-col items-center">
+      <section className="flex flex-col items-center my-12">
         <div className="flex md:flex-row flex-col gap-8 items-center justify-center max-w-screen-lg mx-auto py-20 md:py-30 px-8">
           <div className="max-w-[1fr] relative">
             <div className="w-[80%]">

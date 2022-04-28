@@ -7,7 +7,11 @@ const Board = () => {
       <Helmet>
         <title>Board | Easypaper</title>
       </Helmet>
-      Board
+      <section className="my-16 px-8 py-8">
+        <div>
+          <h1>Board page</h1>
+        </div>
+      </section>
     </div>
   );
 };

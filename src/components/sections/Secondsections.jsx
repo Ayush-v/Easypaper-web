@@ -80,16 +80,17 @@ const UniCols = ({ title, desc, to, image }) => {
       <div className="absolute -top-24 left-3">
         <img src={image} alt="uni" className="w-[250px] h-[250px]" />
       </div>
+
       <div className="flex flex-col mt-36 items-start text-left">
         <h1 className="text-xl md:text-3xl text-zinc-800">{title}</h1>
         <p className="text-sm md:text-md text-gray-400 mt-2 md:mt-4">{desc}</p>
         <Link
           to={to}
-          className="p-1 hover:ring-2 ring-gray-600 rounded-full transition-all mt-6"
+          className="p-1 hover:ring-2 ring-gray-600 rounded-full transition duration-300 mt-6"
         >
           <div className="flex items-center gap-5 bg-white rounded-full drop-shadow-md px-5 py-3 md:px-8 md:py-4">
             <h1 className="text-lg">Visit Course</h1>
-            <ArrowSmRightIcon className="h-7 w-7 -rotate-[32deg]" />
+            <ArrowSmRightIcon className="h-6 w-6 -rotate-[32deg]" />
           </div>
         </Link>
       </div>

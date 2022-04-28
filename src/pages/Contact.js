@@ -7,7 +7,11 @@ const Contact = () => {
       <Helmet>
         <title>Contact | Easypaper</title>
       </Helmet>
-      Contact
+      <section className="my-16 px-8 py-8">
+        <div>
+          <h1>Contact Page</h1>
+        </div>
+      </section>
     </div>
   );
 };

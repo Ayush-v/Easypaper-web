@@ -2,6 +2,8 @@ import React from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import logo from "../assets/Logo.svg";
+import googleLogo from "../assets/google.svg";
+import facebookLogo from "../assets/facebook.svg";
 
 const Login = () => {
   return (
@@ -31,65 +33,39 @@ const Login = () => {
                   <div className="w-full h-full bg-purple-300"></div>
                 </div>
                 <div className="p-6 sm:p-16">
-                  <h2 className="mb-8 text-3xl text-cyan-900 font-bold">
-                    Log in
+                  <h2 className="mb-8 text-3xl text-center text-cyan-900 font-bold">
+                    Log in or Sign up
                   </h2>
-                  <form action="" className="space-y-8" autoComplete="off">
-                    <div className="space-y-2">
-                      <label htmlFor="email" className="text-gray-700">
-                        Email
-                      </label>
-                      <input
-                        type="email"
-                        name="email"
-                        id="email"
-                        className="block w-full px-4 py-3 rounded-md border border-gray-300 text-gray-600 transition duration-300 focus:ring-2 focus:ring-sky-300 focus:outline-none invalid:ring-2 invalid:ring-red-400"
-                      />
-                    </div>
-                    <div>
-                      <div className="flex items-center justify-between">
-                        <label htmlFor="pwd" className="text-gray-700">
-                          Password
-                        </label>
-                        <button className="p-2 -mr-2" type="reset">
-                          <span className="text-sm text-sky-500">
-                            Forgot your password ?
-                          </span>
-                        </button>
+                  <div className="space-y-8">
+                    <button className="h-12 w-full mx-auto px-6 border-2 border-gray-300 rounded-full transition duration-300 hover:border-blue-400 focus:bg-blue-50 active:bg-blue-100">
+                      <div className="flex items-center space-x-4 justify-center">
+                        <img src={googleLogo} className="w-5" alt="" />
+                        <span className="block w-max font-semibold tracking-wide text-gray-700 text-sm transition duration-300 group-hover:text-blue-600 sm:text-base">
+                          Continue with Google
+                        </span>
                       </div>
-                      <input
-                        type="password"
-                        name="pwd"
-                        id="pwd"
-                        className="block w-full px-4 py-3 rounded-md border border-gray-300 text-gray-600 transition duration-300 focus:ring-2 focus:ring-sky-300 focus:outline-none invalid:ring-2 invalid:ring-red-400"
-                      />
-                    </div>
-
-                    <button
-                      type="submit"
-                      className="w-full py-3 px-6 rounded-md bg-sky-600 focus:bg-sky-700 active:bg-sky-500"
-                    >
-                      <span className="text-white">Continue</span>
+                    </button>
+                    <button className="h-12 w-full mx-auto px-6 border-2 border-gray-300 rounded-full transition duration-300 hover:border-blue-400 focus:bg-blue-50 active:bg-blue-100">
+                      <div className="flex items-center space-x-4 justify-center">
+                        <img src={facebookLogo} className="w-5" alt="" />
+                        <span className="block w-max font-semibold tracking-wide text-gray-700 text-sm transition duration-300 group-hover:text-blue-600 sm:text-base">
+                          Continue with Facebook
+                        </span>
+                      </div>
                     </button>
 
-                    <p className="border-t pt-6 text-sm">
-                      Don't have an account ? {""}
-                      <a href="/signup" className="text-sky-500">
-                        Sign up
-                      </a>
+                    <p className="text-center text-sm">
+                      By continuing, you acknowledge that you have read and
+                      understood, and agree to Easypaper’s{" "}
+                      <u>Terms of Service</u> and
+                      <u> Privacy Policy</u>.
                     </p>
-                  </form>
+                  </div>
                 </div>
               </div>
             </div>
             <div className="text-center space-x-4">
               <span>&copy; Easypaper</span>
-              <a href="/" className="text-sm hover:text-sky-900">
-                Contact
-              </a>
-              <a href="/" className="text-sm hover:text-sky-900">
-                Privacy & Terms
-              </a>
             </div>
           </div>
         </div>

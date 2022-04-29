@@ -2,7 +2,12 @@ import React, { useState, Fragment, useEffect } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { useLocation } from "react-router-dom";
 
-import { ChevronDownIcon, MenuAlt1Icon, XIcon } from "@heroicons/react/outline";
+import {
+  ChevronDownIcon,
+  MenuAlt1Icon,
+  XIcon,
+  ArrowRightIcon,
+} from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
 
 function classNames(...classes) {
@@ -191,22 +196,14 @@ const Navbar = () => {
             </Link>
           </ul>
 
-          <div className="flex gap-4 flex-col m-2 md:m-0 md:flex-row">
-            <Link
-              to="signup"
-              onClick={() => setShow(!show)}
-              className="bg-black text-white px-5 py-2 rounded-lg"
-            >
-              Sign up
-            </Link>
-            <Link
-              to="login"
-              onClick={() => setShow(!show)}
-              className="border-solid border-2 border-black px-5 py-2 rounded-lg"
-            >
-              Log In
-            </Link>
-          </div>
+          <Link
+            to="/login"
+            onClick={() => setShow(!show)}
+            className="ring-1 hover:ring-2 hover:-translate-x-[2px] hover:-translate-y-[2px] transition duration-200 ring-black px-4 py-[10px] rounded-xl flex gap-[10px] items-center mb-3 md:mb-0"
+          >
+            Log In
+            <ArrowRightIcon className="w-4 h-4" />
+          </Link>
         </nav>
       </div>
     </header>

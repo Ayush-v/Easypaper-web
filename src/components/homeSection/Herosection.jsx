@@ -16,6 +16,9 @@ const Herosection = () => {
               <p className="text-lg text-gray-400 md:max-w-[75%] mt-2">
                 one stop solution for your upcoming Uni Exam and many more...
               </p>
+              <button className="text-xl px-6 py-4 ring-1 hover:ring-2 hover:-translate-x-[2px] hover:-translate-y-[2px] transition duration-200 ring-black rounded-xl mt-4">
+                Download App
+              </button>
             </div>
           </div>
           <div className="max-w-[1fr]">

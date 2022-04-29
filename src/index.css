@@ -24,3 +24,21 @@ body {
     visibility: hidden;
   }
 }
+
+/* .connect::after {
+  width: 100px;
+  left: 50%;
+  top: inherit;
+  transform: translateX(-50%) rotate(90deg);
+  bottom: -72px;
+}
+
+.connect::after {
+  content: "";
+  height: 12px;
+  background: url("../src/assets/workingImages/connector.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  display: inline-block;
+} */

@@ -1,19 +1,20 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-import Herosection from "../components/sections/Herosection";
-
-import Logo from "../assets/Logo.svg";
-import Secondsections from "../components/sections/Secondsections";
+import DownloadAppSection from "../components/homeSection/DownloadAppSection";
+import Herosection from "../components/homeSection/Herosection";
+import Secondsection from "../components/homeSection/Secondsection";
+import Worksection from "../components/homeSection/Worksection";
 
 const Home = () => {
   return (
     <>
       <Helmet>
         <title>Home | Easypaper</title>
-        <link rel="icon" type="image/x-icon" href={Logo}></link>
       </Helmet>
       <Herosection />
-      <Secondsections />
+      <Secondsection />
+      <Worksection />
+      <DownloadAppSection />
     </>
   );
 };

@@ -51,11 +51,14 @@ const unidata = [
   },
 ];
 
-const Secondsections = () => {
+const Secondsection = () => {
   return (
     <>
       <section className="max-w-screen-lg mx-auto p-8 my-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-28 justify-items-center">
+        <h1 className="text-3xl md:text-4xl w-[450px]">
+          We are happy to Say that we work with
+        </h1>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-28 justify-items-center mt-24">
           {unidata.map((index) => (
             <div key={index.id}>
               <UniCols
@@ -72,7 +75,7 @@ const Secondsections = () => {
   );
 };
 
-export default Secondsections;
+export default Secondsection;
 
 const UniCols = ({ title, desc, to, image }) => {
   return (

@@ -7,7 +7,7 @@ import Worksection from "../components/homeSection/Worksection";
 
 const Home = () => {
   return (
-    <>
+    <div>
       <Helmet>
         <title>Home | Easypaper</title>
       </Helmet>
@@ -15,7 +15,7 @@ const Home = () => {
       <Secondsection />
       <Worksection />
       <DownloadAppSection />
-    </>
+    </div>
   );
 };
 

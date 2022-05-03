@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import { MenuAlt1Icon, XIcon, ArrowRightIcon } from "@heroicons/react/outline";
-import { Link } from "react-router-dom";
+import { MenuAlt1Icon, XIcon } from "@heroicons/react/outline";
+import { Link, useLocation } from "react-router-dom";
 import { Link as LinkS } from "react-scroll";
+import LoginModal from "./LoginModal";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -84,15 +84,7 @@ const Navbar = () => {
               Join Us
             </Link>
           </ul>
-
-          <Link
-            to="/login"
-            onClick={() => setShow(!show)}
-            className="ring-1 hover:ring-2 hover:-translate-x-[2px] hover:-translate-y-[2px] transition duration-200 ring-black px-4 py-[10px] rounded-xl flex gap-[10px] items-center mb-3 md:mb-0"
-          >
-            Log In
-            <ArrowRightIcon className="w-4 h-4" />
-          </Link>
+          <LoginModal navState={show} setNavState={setShow} />
         </nav>
       </div>
     </header>

@@ -51,7 +51,7 @@ const UniversityPage = () => {
       <Helmet>
         <title> {university} | Easypaper</title>
       </Helmet>
-      <section className="max-w-screen-lg mx-auto px-8 mt-20">
+      <div className="max-w-screen-lg mx-auto px-8 mt-20">
         <h1 className="text-5xl md:text-5xl lg:text-6xl text-center">
           {university}
         </h1>
@@ -123,7 +123,7 @@ const UniversityPage = () => {
             </Tab.Panels>
           </Tab.Group>
         </div>
-      </section>
+      </div>
     </>
   );
 };

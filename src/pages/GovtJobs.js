@@ -8,11 +8,11 @@ const GovtJobs = () => {
         <title>Govt.Jobs | Easypaper</title>
       </Helmet>
 
-      <section className="my-16 px-8 py-8">
+      <div className="my-16 px-8 py-8">
         <div>
           <h1>GovtExam page</h1>
         </div>
-      </section>
+      </div>
     </>
   );
 };

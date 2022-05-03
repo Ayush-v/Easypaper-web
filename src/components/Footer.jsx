@@ -27,7 +27,7 @@ const Footer = () => {
         )}
       >
         <div className="max-w-[1234px] mx-auto px-8 py-10">
-          <div className="flex items-center md:justify-between flex-col md:flex-row divide-y">
+          <div className="flex items-center md:justify-between flex-col md:flex-row">
             {/* left section */}
             <div>
               <div className="flex items-center gap-2">
@@ -38,15 +38,30 @@ const Footer = () => {
                 an education platform built for simplicity
               </p>
               <div className="flex items-center gap-6 mt-4">
-                <div className="flex justify-center items-center bg-[#2F5CE8] rounded-full p-1.5">
+                <a
+                  href="https://www.instagram.com/easypaper.in/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex justify-center items-center bg-[#2F5CE8] rounded-full p-1.5"
+                >
                   <InstaIcon />
-                </div>
-                <div className="flex justify-center items-center bg-[#2F5CE8] rounded-full p-1.5">
+                </a>
+                <a
+                  href="https://www.facebook.com/easypaper.in"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex justify-center items-center bg-[#2F5CE8] rounded-full p-1.5"
+                >
                   <FacebookIcon />
-                </div>
-                <div className="flex justify-center items-center bg-[#2F5CE8] rounded-full p-1.5">
+                </a>
+                <a
+                  href="https://twitter.com/easypaperIN"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex justify-center items-center bg-[#2F5CE8] rounded-full p-1.5"
+                >
                   <TwitterIcon />
-                </div>
+                </a>
               </div>
             </div>
             {/* right section */}
@@ -54,7 +69,7 @@ const Footer = () => {
               <div className="text-center md:text-left">
                 <h1 className="text-xl text-[#2F5CE8] mb-4">Company</h1>
                 <p className="text-[#606060]">About</p>
-                <p className="text-[#606060]">team</p>
+                <p className="text-[#606060]">Team</p>
               </div>
               <div className="text-center md:text-left">
                 <h1 className="text-xl text-[#2F5CE8] mb-4">Contact Us</h1>
@@ -64,12 +79,18 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col md:flex-row justify-between items-center mt-8 gap-4 text-[#606060] text-center md:text-left">
+          <div className="flex flex-col md:flex-row justify-between items-center mt-8 gap-4 text-[#606060] text-center md:text-left divide-y">
             <div className="flex gap-6 flex-col md:flex-row">
-              <Link to="/terms-and-services" className="hover:text-black">
+              <Link
+                to="/terms-and-services"
+                className="hover:text-black transition duration-300"
+              >
                 Terms of Services
               </Link>
-              <Link to="/privacy-policy" className="hover:text-black">
+              <Link
+                to="/privacy-policy"
+                className="hover:text-black transition duration-300"
+              >
                 Privacy Policy
               </Link>
               <p>Cookies Agreement</p>

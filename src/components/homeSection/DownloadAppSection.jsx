@@ -1,19 +1,22 @@
 import React from "react";
 
+import iphone from "../../assets/iphone.png";
 import appstore from "../../assets/appstore.png";
 import playstore from "../../assets/playstore.png";
 
 const DownloadAppSection = () => {
   return (
     <>
-      <section
-        className="max-w-screen-lg mx-auto p-8 my-8 bg-[#F8F8FA] rounded-[40px]"
-        id="download"
-      >
-        <div className="flex flex-col md:flex-row justify-evenly items-center">
-          <div className=""></div>
-          <h1>Mobile Image</h1>
-          <div className="w-1/3">
+      <section className="max-w-screen-lg mx-auto mb-24 mt-52" id="download">
+        <div className="flex flex-col md:flex-row justify-evenly items-center mx-3 p-8 md:p-0 bg-[#F8F8FA] rounded-[40px]">
+          <div className="-translate-y-[160px]">
+            <img
+              src={iphone}
+              alt="iphone"
+              className="max-w-[328px] max-h-[678.27px]"
+            />
+          </div>
+          <div className="md:w-1/3 -mt-32 md:m-0">
             <h1 className="text-3xl ">Download mobile App</h1>
             <p className="opacity-50">
               Download easy paper app on Android and IOS. Nisl, convallis risus
@@ -24,16 +27,16 @@ const DownloadAppSection = () => {
               <p className="opacity-50">Available on the</p>
               <a
                 href="/"
-                className="flex items-center gap-6 ring-1 ring-gray-300 rounded-xl pl-4 pr-11 py-3 w-fit"
+                className="flex items-center gap-6 ring-1 ring-gray-300 rounded-xl hover:ring-gray-700 transition duration-300 pl-4 pr-11 py-3 w-fit"
               >
-                <img src={appstore} alt="" />
+                <img src={appstore} alt="appstore" />
                 <h1>App Store</h1>
               </a>
               <a
                 href="/"
-                className="flex items-center gap-6 ring-1 ring-gray-300 rounded-xl pl-4 pr-11 py-3 w-fit"
+                className="flex items-center gap-6 ring-1 ring-gray-300 hover:ring-gray-700 transition duration-300 rounded-xl pl-4 pr-11 py-3 w-fit"
               >
-                <img src={playstore} alt="" />
+                <img src={playstore} alt="playstore" />
                 <h1>Play Store</h1>
               </a>
             </div>

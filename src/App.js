@@ -5,8 +5,7 @@ import JoinUs from "./pages/JoinUs";
 import Contact from "./pages/Contact";
 import GovtJobs from "./pages/GovtJobs";
 import Home from "./pages/Home";
-import Login from "./pages/Login";
-
+import ScrollToTop from "./ScrollToTop";
 import Logo from "./assets/Logo.svg";
 import Footer from "./components/Footer";
 import UniversityPage from "./pages/UniversityPage";
@@ -22,10 +21,9 @@ function App() {
           <link rel="icon" type="image/x-icon" href={Logo}></link>
         </Helmet>
         <BrowserRouter>
+          <ScrollToTop />
           <Navbar />
-
           <Routes>
-            <Route exact path="/login" element={<Login />} />
             <Route exact path="/" element={<Home />} />
             <Route exact path="/contact" element={<Contact />} />
             <Route exact path=":university/:id" element={<UniversityPage />} />

@@ -1,6 +1,7 @@
 import React from "react";
 import Heroimage from "../../assets/heroImage.png";
 import lines from "../../assets/lines.png";
+import { Link as LinkS } from "react-scroll";
 
 const Herosection = () => {
   return (
@@ -13,12 +14,17 @@ const Herosection = () => {
                 Welcome To EasyPaper
               </h1>
               <img src={lines} alt="" className="absolute -top-4 -left-7" />
-              <p className="text-lg text-gray-400 md:max-w-[75%] mt-2">
+              <p className="text-lg text-gray-400 md:max-w-[75%] mt-2 mb-8">
                 one stop solution for your upcoming Uni Exam and many more...
               </p>
-              <button className="text-xl px-6 py-4 ring-1 hover:ring-2 hover:-translate-x-[2px] hover:-translate-y-[2px] transition duration-200 ring-black rounded-xl mt-4">
+              <LinkS
+                to="download"
+                smooth={true}
+                duration={1000}
+                className="text-lg text-white bg-black px-6 py-4 scale-100 hover:scale-150 transition duration-300 rounded-xl cursor-pointer"
+              >
                 Download App
-              </button>
+              </LinkS>
             </div>
           </div>
           <div className="max-w-[1fr]">

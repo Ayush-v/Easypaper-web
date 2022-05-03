@@ -3,30 +3,23 @@ import { ArrowSmRightIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
 
 import puc from "../../assets/uni/puc.png";
-import cbse from "../../assets/uni/cbse.png";
 import gndu from "../../assets/uni/gndu.png";
 import pup from "../../assets/uni/pu_p.png";
-import icse from "../../assets/uni/icse.png";
 
 const unidata = [
   {
     id: "0",
+    uniId: "28",
     title: "Panjab University Chandigarh",
     describe:
       "Previous years paper of both UG & PG Courses under PANJAB UNIVERSITY (PU CHANDIGARH) are provided. Just click the link below.",
     link: "/",
     image: puc,
   },
-  {
-    id: "1",
-    title: "CBSE",
-    describe:
-      "We provide 10th and 12th board previous years paper. Arraged in a systematic way just click the button below to view.",
-    link: "/",
-    image: cbse,
-  },
+
   {
     id: "2",
+    uniId: "44",
     title: "Guru Nanak Dev University (GNDU)",
     describe:
       "Previous years paper of both UG & PG Courses under GURU NANAK DEV UNIVERSITY AMRITSAR are provided. Just click the link below.",
@@ -35,27 +28,44 @@ const unidata = [
   },
   {
     id: "3",
+    uniId: "43",
     title: "Punjabi University Patiala",
     describe:
       "Previous years paper of both UG & PG Courses under PUNJABI UNIVERSITY (PU PATIALA) are provided. Just click the link below.",
     link: "/",
     image: pup,
   },
-  {
-    id: "4",
-    title: "ICSE/ISC",
-    describe:
-      "We provide 10th and 12th board previous years paper. Arraged in a systematic way just click the button below to view.",
-    link: "/",
-    image: icse,
-  },
 ];
 
 const Secondsection = () => {
+  // const [uniData, setUniData] = useState(null);
+
+  // async function api() {
+  //   try {
+  //     await axios
+  //       .post(`${process.env.REACT_APP_ALL_UNIVERSITY}`)
+  //       .then((res) => {
+  //         return res.data;
+  //       })
+  //       .then((data) => {
+  //         setUniData(data.responseData.universityList);
+  //       })
+  //       .catch((err) => {
+  //         console.log(err);
+  //       });
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   api();
+  // }, []);
+
   return (
     <>
-      <section className="max-w-screen-lg mx-auto p-8 my-20">
-        <h1 className="text-3xl md:text-4xl w-[450px]">
+      <section id="university" className="max-w-screen-lg mx-auto p-8 my-20">
+        <h1 className="text-3xl md:text-4xl max-w-[450px] w-auto">
           We are happy to Say that we work with
         </h1>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-28 justify-items-center mt-24">
@@ -64,8 +74,9 @@ const Secondsection = () => {
               <UniCols
                 title={index.title}
                 desc={index.describe}
-                to={index.link}
+                to={`/${index.title.trim()}/${index.uniId}`}
                 image={index.image}
+                // state={{ title: index.title, image: index.image }}
               />
             </div>
           ))}
@@ -77,7 +88,7 @@ const Secondsection = () => {
 
 export default Secondsection;
 
-const UniCols = ({ title, desc, to, image }) => {
+const UniCols = ({ title, desc, to, image, state }) => {
   return (
     <div className="bg-white drop-shadow-lg rounded-[30px] relative max-w-[450px] h-full p-4">
       <div className="absolute -top-24 left-3">
@@ -89,6 +100,7 @@ const UniCols = ({ title, desc, to, image }) => {
         <p className="text-sm md:text-md text-gray-400 mt-2 md:mt-4">{desc}</p>
         <Link
           to={to}
+          // state={state}
           className="p-1 hover:ring-2 ring-gray-600 rounded-full transition duration-300 mt-6"
         >
           <div className="flex items-center gap-5 bg-white rounded-full drop-shadow-md px-5 py-3 md:px-8 md:py-4">

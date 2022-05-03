@@ -6,7 +6,10 @@ import playstore from "../../assets/playstore.png";
 const DownloadAppSection = () => {
   return (
     <>
-      <section className="max-w-screen-lg mx-auto p-8 my-8 bg-[#F8F8FA] rounded-[40px]">
+      <section
+        className="max-w-screen-lg mx-auto p-8 my-8 bg-[#F8F8FA] rounded-[40px]"
+        id="download"
+      >
         <div className="flex flex-col md:flex-row justify-evenly items-center">
           <div className=""></div>
           <h1>Mobile Image</h1>

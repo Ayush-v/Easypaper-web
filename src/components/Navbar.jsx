@@ -1,14 +1,8 @@
-import React, { useState, Fragment, useEffect } from "react";
-import { Menu, Transition } from "@headlessui/react";
+import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-
-import {
-  ChevronDownIcon,
-  MenuAlt1Icon,
-  XIcon,
-  ArrowRightIcon,
-} from "@heroicons/react/outline";
+import { MenuAlt1Icon, XIcon, ArrowRightIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
+import { Link as LinkS } from "react-scroll";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -38,7 +32,6 @@ const Navbar = () => {
       <div className="flex justify-between items-center max-w-[1234px] mx-auto h-[60px] p-8">
         <Link to="/" className="flex items-center gap-2">
           <Easlog />
-          {/* <h1 className="text-2xl">EasyPaper</h1> */}
         </Link>
 
         <button
@@ -60,139 +53,35 @@ const Navbar = () => {
           className="absolute top-12 right-6 md:relative md:top-0 md:right-0 flex flex-col items-center md:flex-row md:w-full w-52  shadow-lg rounded-lg mt-2 md:shadow-none divide-y md:divide-y-0 divide-gray-100 primary-navigation z-50 bg-white md:bg-transparent"
         >
           <ul className="flex flex-col md:flex-row md:mx-auto md:gap-3 md:divide-y-0 divide-y divide-gray-100 w-full md:w-auto md:p-0 p-1">
-            <li className="px-4 py-4">
-              <Menu as="div" className="relative inline-block text-left">
-                <Menu.Button className="inline-flex items-center">
-                  Board <ChevronDownIcon className="h-5 w-5" />
-                </Menu.Button>
-
-                <Transition
-                  as={Fragment}
-                  enter="transition duration-100 ease-out"
-                  enterFrom="transform scale-95 opacity-0"
-                  enterTo="transform scale-100 opacity-100"
-                  leave="transition duration-75 ease-out"
-                  leaveFrom="transform scale-100 opacity-100"
-                  leaveTo="transform scale-95 opacity-0"
-                >
-                  <Menu.Items className="origin-top-right absolute right-0 md:left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 z-50">
-                    <Menu.Item>
-                      {({ active }) => (
-                        <Link
-                          to="/board"
-                          className={classNames(
-                            active
-                              ? "bg-gray-100 text-gray-900"
-                              : "text-gray-700",
-                            "block px-4 py-2 text-sm"
-                          )}
-                          onClick={() => setShow(!show)}
-                        >
-                          CBSE
-                        </Link>
-                      )}
-                    </Menu.Item>
-                    <Menu.Item>
-                      {({ active }) => (
-                        <Link
-                          to="/board"
-                          className={classNames(
-                            active
-                              ? "bg-gray-100 text-gray-900"
-                              : "text-gray-700",
-                            "block px-4 py-2 text-sm"
-                          )}
-                          onClick={() => setShow(!show)}
-                        >
-                          ICSE/ISC
-                        </Link>
-                      )}
-                    </Menu.Item>
-                  </Menu.Items>
-                </Transition>
-              </Menu>
-            </li>
-            <li className="px-4 py-4">
-              <Menu as="div" className="relative inline-block text-left">
-                <Menu.Button className="inline-flex items-center">
-                  University <ChevronDownIcon className="h-5 w-5" />
-                </Menu.Button>
-
-                <Transition
-                  as={Fragment}
-                  enter="transition duration-100 ease-out"
-                  enterFrom="transform scale-95 opacity-0"
-                  enterTo="transform scale-100 opacity-100"
-                  leave="transition duration-75 ease-out"
-                  leaveFrom="transform scale-100 opacity-100"
-                  leaveTo="transform scale-95 opacity-0"
-                >
-                  <Menu.Items className="origin-top-right absolute right-0 md:left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:outline-none">
-                    <Menu.Item>
-                      {({ active }) => (
-                        <Link
-                          to="/university"
-                          className={classNames(
-                            active
-                              ? "bg-gray-100 text-gray-900"
-                              : "text-gray-700",
-                            "block px-4 py-2 text-sm"
-                          )}
-                          onClick={() => setShow(!show)}
-                        >
-                          Panjab University &#40;CHD&#41;
-                        </Link>
-                      )}
-                    </Menu.Item>
-                    <Menu.Item>
-                      {({ active }) => (
-                        <Link
-                          to="/university"
-                          className={classNames(
-                            active
-                              ? "bg-gray-100 text-gray-900"
-                              : "text-gray-700",
-                            "block px-4 py-2 text-sm"
-                          )}
-                          onClick={() => setShow(!show)}
-                        >
-                          GNDU &#40;Amritsar&#41;
-                        </Link>
-                      )}
-                    </Menu.Item>
-                    <Menu.Item>
-                      {({ active }) => (
-                        <Link
-                          to="/university"
-                          className={classNames(
-                            active
-                              ? "bg-gray-100 text-gray-900"
-                              : "text-gray-700",
-                            "block px-4 py-2 text-sm"
-                          )}
-                          onClick={() => setShow(!show)}
-                        >
-                          Panjabi University &#40;Patiala&#41;
-                        </Link>
-                      )}
-                    </Menu.Item>
-                  </Menu.Items>
-                </Transition>
-              </Menu>
-            </li>
+            <LinkS
+              className="px-4 py-4 cursor-pointer"
+              to="university"
+              smooth={true}
+              duration={1000}
+              onClick={() => setShow(!show)}
+            >
+              University
+            </LinkS>
             <Link
               to="/govt"
               onClick={() => setShow(!show)}
-              className="flex items-end px-4 py-4"
+              className="px-4 py-4"
             >
               Govt.Jobs
             </Link>
             <Link
               to="/contact"
               onClick={() => setShow(!show)}
-              className="flex items-end px-4 py-4"
+              className="px-4 py-4"
             >
               Contact
+            </Link>
+            <Link
+              to="/joinUs"
+              onClick={() => setShow(!show)}
+              className="px-4 py-4"
+            >
+              Join Us
             </Link>
           </ul>
 

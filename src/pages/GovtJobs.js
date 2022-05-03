@@ -1,7 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
 
-const GovtExam = () => {
+const GovtJobs = () => {
   return (
     <>
       <Helmet>
@@ -17,4 +17,4 @@ const GovtExam = () => {
   );
 };
 
-export default GovtExam;
+export default GovtJobs;

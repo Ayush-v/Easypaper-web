@@ -1,15 +1,18 @@
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Board from "./pages/Board";
+import JoinUs from "./pages/JoinUs";
 import Contact from "./pages/Contact";
-import GovtExam from "./pages/GovtExam";
+import GovtJobs from "./pages/GovtJobs";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import University from "./pages/University";
 
 import Logo from "./assets/Logo.svg";
 import Footer from "./components/Footer";
+import UniversityPage from "./pages/UniversityPage";
+import Courses from "./pages/Courses";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsAndServices from "./pages/TermsAndServices";
 
 function App() {
   return (
@@ -22,12 +25,23 @@ function App() {
           <Navbar />
 
           <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="/" element={<Home />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/university" element={<University />} />
-            <Route path="/board" element={<Board />} />
-            <Route path="/govt" element={<GovtExam />} />
+            <Route exact path="/login" element={<Login />} />
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/contact" element={<Contact />} />
+            <Route exact path=":university/:id" element={<UniversityPage />} />
+            <Route
+              exact
+              path=":university/:id/:coursename/:courseid"
+              element={<Courses />}
+            />
+            <Route exact path="/joinus" element={<JoinUs />} />
+            <Route exact path="/govt" element={<GovtJobs />} />
+            <Route exact path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route
+              exact
+              path="/terms-and-services"
+              element={<TermsAndServices />}
+            />
           </Routes>
 
           <Footer />

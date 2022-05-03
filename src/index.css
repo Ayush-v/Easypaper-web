@@ -25,6 +25,10 @@ body {
   }
 }
 
+.policies a {
+  color: blue;
+}
+
 /* .connect::after {
   width: 100px;
   left: 50%;

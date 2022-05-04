@@ -24,7 +24,7 @@ const GovtJobs = () => {
         <title>Govt.Jobs | Easypaper</title>
       </Helmet>
 
-      <div className="h-screen flex flex-col justify-center items-center">
+      <div className="mt-6 sm:mt-0 text-center h-screen flex flex-col justify-center items-center">
         <h1 className="text-6xl sm:text-7xl md:text-8xl lg:9xl text-anima">
           Coming Soon
         </h1>

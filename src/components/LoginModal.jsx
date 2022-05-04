@@ -21,10 +21,10 @@ const LoginModal = ({ navState, setNavState }) => {
     <>
       <button
         onClick={openModal}
-        className="ring-1 hover:ring-2 hover:-translate-x-[2px] hover:-translate-y-[2px] transition duration-200 ring-black px-4 py-[10px] rounded-xl flex gap-[10px] items-center mb-3 md:mb-0 whitespace-nowrap text-center"
+        className="ring-1 hover:ring-2 hover:-translate-y-[2px] active:translate-y-0 transition duration-300 ring-black px-4 py-[10px] rounded-xl flex gap-[10px] items-center mb-3 md:mb-0 whitespace-nowrap text-center"
       >
         <p>Sign In</p>
-        <ArrowRightIcon />
+        <ArrowRightIcon className="w-5 h-5" />
       </button>
 
       <Transition appear show={isOpen} as={Fragment}>
@@ -65,18 +65,18 @@ const LoginModal = ({ navState, setNavState }) => {
                     Log in or Sign up
                   </Dialog.Title>
                   <div className="mt-10 flex flex-col gap-4">
-                    <button className="h-12 w-full mx-auto px-6 border-2 border-gray-300 rounded-full transition duration-300 hover:border-blue-400 focus:bg-blue-50 active:bg-blue-100">
-                      <div className="flex items-center space-x-4 justify-center">
-                        <img src={googleLogo} className="w-5" alt="" />
-                        <span className="block w-max font-semibold tracking-wide text-gray-700 text-sm transition duration-300 group-hover:text-blue-600 sm:text-base">
+                    <button className="h-12 w-full mx-auto px-6 border-2 border-gray-300 rounded-full transition duration-300 hover:border-black/[0.6] hover:-translate-y-[3px] active:translate-y-0">
+                      <div className="flex items-center">
+                        <img src={googleLogo} className="w-7" alt="" />
+                        <span className="block mx-auto w-full text-gray-800 tracking-wide text-base sm:text-lg transition duration-300">
                           Continue with Google
                         </span>
                       </div>
                     </button>
-                    <button className="h-12 w-full mx-auto px-6 border-2 border-gray-300 rounded-full transition duration-300 hover:border-blue-400 focus:bg-blue-50 active:bg-blue-100">
-                      <div className="flex items-center space-x-4 justify-center">
-                        <img src={facebookLogo} className="w-5" alt="" />
-                        <span className="block w-max font-semibold tracking-wide text-gray-700 text-sm transition duration-300 group-hover:text-blue-600 sm:text-base">
+                    <button className="h-12 w-full mx-auto px-6 border-2 border-gray-300 rounded-full transition duration-300 hover:border-black/[0.6] hover:-translate-y-[3px] active:translate-y-0">
+                      <div className="flex items-center">
+                        <img src={facebookLogo} className="w-7" alt="" />
+                        <span className="block mx-auto w-full text-gray-800 tracking-wide text-base sm:text-lg transition duration-300">
                           Continue with Facebook
                         </span>
                       </div>
@@ -87,7 +87,7 @@ const LoginModal = ({ navState, setNavState }) => {
                     By continuing, you acknowledge that you have read and
                     understood, and agree to Easypaper’s{" "}
                     <Link
-                      className="underline hover:text-gray-800 cursor-pointer"
+                      className="underline hover:text-gray-800 cursor-pointer transition duration-300"
                       to="/terms-and-services"
                       onClick={closeModal}
                     >
@@ -95,7 +95,7 @@ const LoginModal = ({ navState, setNavState }) => {
                     </Link>{" "}
                     and{" "}
                     <Link
-                      className="underline hover:text-gray-800 cursor-pointer"
+                      className="underline hover:text-gray-800 cursor-pointer transition duration-300"
                       to="/privacy-policy"
                       onClick={closeModal}
                     >
@@ -110,7 +110,7 @@ const LoginModal = ({ navState, setNavState }) => {
                       className="bg-white drop-shadow-md rounded-full"
                       onClick={closeModal}
                     >
-                      <XIcon className="w-6 h-6 m-1" />
+                      <XIcon className="w-6 h-6 m-1 hover:scale-[1.1] transition duration-300 active:scale-0" />
                     </button>
                   </div>
                 </Dialog.Panel>

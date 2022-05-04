@@ -12,6 +12,7 @@ import UniversityPage from "./pages/UniversityPage";
 import Courses from "./pages/Courses";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndServices from "./pages/TermsAndServices";
+import Module from "./pages/Module";
 
 function App() {
   return (
@@ -26,11 +27,16 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/contact" element={<Contact />} />
-            <Route exact path=":university/:id" element={<UniversityPage />} />
+            <Route exact path="/:university/:id" element={<UniversityPage />} />
             <Route
               exact
-              path=":university/:id/:coursename/:courseid"
+              path="/:university/:id/:coursename/:courseid"
               element={<Courses />}
+            />
+            <Route
+              exact
+              path="/:university/:id/:coursename/:courseid/:module/:moduleid"
+              element={<Module />}
             />
             <Route exact path="/joinus" element={<JoinUs />} />
             <Route exact path="/govt" element={<GovtJobs />} />

@@ -11,7 +11,7 @@ const Herosection = () => {
           <div className="max-w-[1fr] relative">
             <div className="w-[80%]">
               <h1 className="text-5xl md:text-6xl lg:text-7xl">
-                Welcome To EasyPaper
+                Welcome To <span className="text-[#3675F0]">EasyPaper</span>
               </h1>
               <img src={lines} alt="" className="absolute -top-4 -left-7" />
               <p className="text-lg text-gray-400 md:max-w-[75%] mt-2 mb-8">
@@ -21,7 +21,7 @@ const Herosection = () => {
                 to="download"
                 smooth={true}
                 duration={1000}
-                className="text-lg text-white bg-black px-6 py-4 scale-100 hover:scale-150 transition duration-300 rounded-xl cursor-pointer"
+                className="text-lg text-white bg-black px-6 py-4 hover:bg-transparent hover:text-black hover:ring-1 hover:ring-black active:bg-black active:text-white transition-all duration-300 rounded-xl cursor-pointer"
               >
                 Download App
               </LinkS>

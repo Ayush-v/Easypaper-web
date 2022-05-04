@@ -8,7 +8,7 @@ const DownloadAppSection = () => {
   return (
     <>
       <section className="max-w-screen-lg mx-auto mb-24 mt-52" id="download">
-        <div className="flex flex-col md:flex-row justify-evenly items-center mx-3 p-8 md:p-0 bg-[#F8F8FA] rounded-[40px]">
+        <div className="flex flex-col md:flex-row justify-evenly items-center mx-3 p-8 md:p-0 bg-[#F8F8FA] drop-shadow-lg rounded-[40px]">
           <div className="-translate-y-[160px]">
             <img
               src={iphone}
@@ -17,10 +17,10 @@ const DownloadAppSection = () => {
             />
           </div>
           <div className="md:w-1/3 -mt-32 md:m-0">
-            <h1 className="text-3xl ">Download mobile App</h1>
-            <p className="opacity-50">
-              Download easy paper app on Android and IOS. Nisl, convallis risus
-              semper facilisis. Eget morbi ut urna, at nec.
+            <h1 className="text-3xl ">Download Mobile App</h1>
+            <p className="opacity-50 mt-2">
+              Download easy paper app on Android and IOS. For more features like
+              solved question papers,Important questions and many more...
             </p>
 
             <div className="mt-6 flex flex-col items-start gap-5">

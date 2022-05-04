@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import { LocationMarkerIcon } from "@heroicons/react/outline";
 
 const Courses = () => {
-  const { courseid, id, coursename } = useParams();
+  const { university, courseid, id, coursename } = useParams();
   const [data, setData] = useState(null);
 
   const parameters = {
@@ -24,7 +25,6 @@ const Courses = () => {
           return res.json();
         })
         .then((data) => {
-          console.log(data.responseData);
           setData(data.responseData);
         });
     } catch (err) {
@@ -41,19 +41,38 @@ const Courses = () => {
       <Helmet>
         <title> {coursename} | Easypaper</title>
       </Helmet>
-      <div className="mt-16">
+      <div className="max-w-screen-lg mx-auto px-8 mt-20 py-16">
         <div>
-          <h1>Courses - {data && data.courseDetail.name}</h1>
-          <h1>university - {data && data.courseDetail.university_name}</h1>
+          <h1 className="text-5xl md:text-5xl lg:text-6xl">
+            {data && data.courseDetail.name}
+          </h1>
+          <div className="flex items-center gap-1">
+            <LocationMarkerIcon className="w-4 h-4 text-yellow-400" />
+            <h3>
+              {data && data.courseDetail.university_name}
+              {","}
+              {data && data.courseDetail.university_address}
+            </h3>
+          </div>
         </div>
-        <div>
+        <div className="mt-6">
           {data &&
             data.courseModules.map((index) => (
-              <div key={index.id}>
-                <p style={{ color: `${index.background_color}` }}>
-                  {index.name}
-                </p>
-              </div>
+              <Link
+                key={index.id}
+                to={`/${university}/${id}/${coursename}/${courseid}/${index.name}/${index.id}`}
+                className="cursor-pointer"
+              >
+                <div className="bg-white drop-shadow-md rounded-lg mb-3 p-8 flex items-center gap-3 hover:drop-shadow-lg hover:-translate-x-1 hover:-translate-y-1 transition duration-300 ease-in-out">
+                  <img
+                    src={index.icon}
+                    alt="icon"
+                    className="w-[80px] p-4 rounded-full"
+                    style={{ background: `${index.background_color}` }}
+                  />
+                  <h3 className="text-xl">{index.name}</h3>
+                </div>
+              </Link>
             ))}
         </div>
       </div>

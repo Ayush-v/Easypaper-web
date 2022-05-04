@@ -34,7 +34,6 @@ const UniversityPage = () => {
           return res.json();
         })
         .then((data) => {
-          console.log(data.responseData.courseList[0].background_color);
           setCoursedData(data.responseData);
         });
     } catch (err) {
@@ -51,16 +50,16 @@ const UniversityPage = () => {
       <Helmet>
         <title> {university} | Easypaper</title>
       </Helmet>
-      <div className="max-w-screen-lg mx-auto px-8 mt-20">
+      <div className="max-w-screen-lg mx-auto px-8 mt-20 py-16">
         <h1 className="text-5xl md:text-5xl lg:text-6xl text-center">
           {university}
         </h1>
-        <h3 className="text-3xl md:text-4xl lg:text-5xl mt-5">
+        <h3 className="text-2xl md:text-3xl mt-8 text-center text-gray-600">
           Select Your Course
         </h3>
         <div className="mt-6">
           <Tab.Group>
-            <Tab.List className="flex space-x-1 rounded-xl bg-white drop-shadow-lg overflow-hidden px-5">
+            <Tab.List className="flex space-x-1 rounded-xl bg-white drop-shadow-lg px-5 transition duration-300 ease-in-out">
               {coursesData &&
                 coursesData.course_types.map((index) => (
                   <Tab
@@ -72,13 +71,13 @@ const UniversityPage = () => {
                         "focus:outline-none",
                         selected
                           ? "border-b-4 border-[#314BD5]"
-                          : "text-black/[0.4] hover:border-b-4 hover:border-[#314BD5]/[0.4] hover:text-black/[0.6]"
+                          : "text-black/[0.4] hover:border-b-4 hover:border-[#314BD5]/[0.4] hover:text-black/[0.6] transition duration-500 ease-in-out"
                       )
                     }
                   >
                     {({ selected }) => (
                       <button
-                        className={selected ? " text-white" : " text-black"}
+                        className={selected ? "text-white" : "text-black"}
                         onClick={() => setType(index.id)}
                       >
                         {index.name}
@@ -87,7 +86,7 @@ const UniversityPage = () => {
                   </Tab>
                 ))}
             </Tab.List>
-            <Tab.Panels className="mt-8">
+            <Tab.Panels className="my-8">
               {coursesData &&
                 coursesData.course_types.map((index) => (
                   <Tab.Panel key={index.id}>
@@ -97,10 +96,8 @@ const UniversityPage = () => {
                           key={index.courseId}
                           to={`/${university}/${id}/${index.name}/${index.courseId}`}
                         >
-                          <div
-                            className={`border-l-4 mb-5 rounded-[2px] border-[${index.background_color}]`}
-                          >
-                            <div className="bg-white drop-shadow-md px-4 py-4 ml-4 flex rounded-lg items-center gap-4">
+                          <div className="border-l-4 mb-5 rounded-[2px] border-gray-200 hover:border-[#3E6ADB] hover:-translate-x-1 hover:-translate-y-1  group transition duration-500 ease-in-out">
+                            <div className="bg-white drop-shadow-md group-hover:drop-shadow-lg px-4 py-4 ml-4 flex rounded-lg items-center gap-4">
                               <img
                                 src={index.small_icon}
                                 alt="icon"

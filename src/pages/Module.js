@@ -1,7 +1,7 @@
 import React, { useEffect, useState, Fragment } from "react";
 import { Helmet } from "react-helmet-async";
 import { useParams } from "react-router-dom";
-import { Tab, Disclosure } from "@headlessui/react";
+import { Tab, Disclosure, Transition } from "@headlessui/react";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -96,20 +96,29 @@ const Module = () => {
                               <Disclosure.Button>
                                 <h1>{index.subject_name}</h1>
                               </Disclosure.Button>
-                              <Disclosure.Panel>
-                                {index.content.map((i) => (
-                                  <div key={i.id}>
-                                    <a
-                                      href={i.pdf_file}
-                                      target="_blank"
-                                      rel="noreferrer"
-                                      className="cursor-pointer"
-                                    >
-                                      {i.year}
-                                    </a>
-                                  </div>
-                                ))}
-                              </Disclosure.Panel>
+                              <Transition
+                                enter="transition duration-100 ease-out"
+                                enterFrom="transform scale-95 opacity-0"
+                                enterTo="transform scale-100 opacity-100"
+                                leave="transition duration-75 ease-out"
+                                leaveFrom="transform scale-100 opacity-100"
+                                leaveTo="transform scale-95 opacity-0"
+                              >
+                                <Disclosure.Panel>
+                                  {index.content.map((i) => (
+                                    <div key={i.id}>
+                                      <a
+                                        href={i.pdf_file}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        className="cursor-pointer"
+                                      >
+                                        {i.year}
+                                      </a>
+                                    </div>
+                                  ))}
+                                </Disclosure.Panel>
+                              </Transition>
                             </div>
                           </div>
                         ))}

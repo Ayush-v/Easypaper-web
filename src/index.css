@@ -37,3 +37,28 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+.text-anima {
+  padding: 0.5rem;
+  background: conic-gradient(
+    from 180deg at 50% 61.95%,
+    #3186d5 0deg,
+    #aa95ff 82.5deg,
+    #e0788c 165deg,
+    #2f5ce8 268.13deg,
+    #3186d5 360deg
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: colored 3s infinite linear;
+}
+
+@keyframes colored {
+  from {
+    -webkit-filter: hue-rotate(0deg);
+  }
+  to {
+    -webkit-filter: hue-rotate(-360deg);
+  }
+}

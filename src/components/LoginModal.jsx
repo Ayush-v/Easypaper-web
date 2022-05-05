@@ -1,12 +1,16 @@
 import React, { useState, Fragment } from "react";
-import { Dialog, Transition } from "@headlessui/react";
+import { Dialog, Transition, Popover } from "@headlessui/react";
 import googleLogo from "../assets/google.svg";
 import facebookLogo from "../assets/facebook.svg";
 import { XIcon, ArrowRightIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 
 const LoginModal = ({ navState, setNavState }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [error, setError] = useState("");
+
+  const { googleSignIn, facebookSignIn, currentUser, logout } = useAuth();
 
   function closeModal() {
     setIsOpen(false);
@@ -17,15 +21,54 @@ const LoginModal = ({ navState, setNavState }) => {
     setIsOpen(true);
   }
 
+  const handleGoogleSignIn = async (e) => {
+    e.preventDefault();
+    try {
+      await googleSignIn();
+      closeModal();
+    } catch (err) {
+      console.log(err, "something went wrong");
+    }
+  };
+
+  const handleFacebookSignIn = async (e) => {
+    e.preventDefault();
+    try {
+      await facebookSignIn();
+      closeModal();
+    } catch (err) {
+      console.log(err, "something went wrong");
+    }
+  };
+
+  async function handleLogout() {
+    try {
+      setError("");
+      await logout();
+    } catch (err) {
+      setError("Failed to log out");
+      console.log(err);
+    }
+  }
+
   return (
     <>
-      <button
-        onClick={openModal}
-        className="ring-1 hover:ring-2 hover:-translate-y-[2px] active:translate-y-0 transition duration-300 ring-black px-4 py-[10px] rounded-xl flex gap-[10px] items-center mb-3 md:mb-0 whitespace-nowrap text-center"
-      >
-        <p>Sign In</p>
-        <ArrowRightIcon className="w-5 h-5" />
-      </button>
+      {currentUser ? (
+        <Popover className="relative">
+          <Popover.Button>Welcome, {currentUser.displayName}</Popover.Button>
+
+          <Popover.Panel className="absolute z-10">
+            <div className="grid grid-cols-2">
+              <button onClick={handleLogout}>Log out</button>
+            </div>
+
+            <img src="/solutions.jpg" alt="" />
+          </Popover.Panel>
+        </Popover>
+      ) : (
+        <ModalButton state={openModal} />
+      )}
+      {error && error}
 
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
@@ -65,7 +108,10 @@ const LoginModal = ({ navState, setNavState }) => {
                     Log in or Sign up
                   </Dialog.Title>
                   <div className="mt-10 flex flex-col gap-4">
-                    <button className="h-12 w-full mx-auto px-6 border-2 border-gray-300 rounded-full transition duration-300 hover:border-black/[0.6] hover:-translate-y-[3px] active:translate-y-0">
+                    <button
+                      onClick={handleGoogleSignIn}
+                      className="h-12 w-full mx-auto px-6 border-2 border-gray-300 rounded-full transition duration-300 hover:border-black/[0.6] hover:-translate-y-[3px] active:translate-y-0"
+                    >
                       <div className="flex items-center">
                         <img src={googleLogo} className="w-7" alt="" />
                         <span className="block mx-auto w-full text-gray-800 tracking-wide text-base sm:text-lg transition duration-300">
@@ -73,7 +119,10 @@ const LoginModal = ({ navState, setNavState }) => {
                         </span>
                       </div>
                     </button>
-                    <button className="h-12 w-full mx-auto px-6 border-2 border-gray-300 rounded-full transition duration-300 hover:border-black/[0.6] hover:-translate-y-[3px] active:translate-y-0">
+                    <button
+                      onClick={handleFacebookSignIn}
+                      className="h-12 w-full mx-auto px-6 border-2 border-gray-300 rounded-full transition duration-300 hover:border-black/[0.6] hover:-translate-y-[3px] active:translate-y-0"
+                    >
                       <div className="flex items-center">
                         <img src={facebookLogo} className="w-7" alt="" />
                         <span className="block mx-auto w-full text-gray-800 tracking-wide text-base sm:text-lg transition duration-300">
@@ -124,6 +173,18 @@ const LoginModal = ({ navState, setNavState }) => {
 };
 
 export default LoginModal;
+
+const ModalButton = ({ state }) => {
+  return (
+    <button
+      onClick={state}
+      className="ring-1 hover:ring-2 hover:-translate-y-[2px] active:translate-y-0 transition duration-300 ring-black px-4 py-[10px] rounded-xl flex gap-[10px] items-center mb-3 md:mb-0 whitespace-nowrap text-center"
+    >
+      <p>Sign In</p>
+      <ArrowRightIcon className="w-5 h-5" />
+    </button>
+  );
+};
 
 const Easylogo = () => {
   return (

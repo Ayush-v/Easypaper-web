@@ -13,6 +13,7 @@ import Courses from "./pages/Courses";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndServices from "./pages/TermsAndServices";
 import Module from "./pages/Module";
+import AuthProvider from "./contexts/AuthContext";
 
 function App() {
   return (
@@ -22,33 +23,39 @@ function App() {
           <link rel="icon" type="image/x-icon" href={Logo}></link>
         </Helmet>
         <BrowserRouter>
-          <ScrollToTop />
-          <Navbar />
-          <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route exact path="/contact" element={<Contact />} />
-            <Route exact path="/:university/:id" element={<UniversityPage />} />
-            <Route
-              exact
-              path="/:university/:id/:coursename/:courseid"
-              element={<Courses />}
-            />
-            <Route
-              exact
-              path="/:university/:id/:coursename/:courseid/:module/:moduleid"
-              element={<Module />}
-            />
-            <Route exact path="/joinus" element={<JoinUs />} />
-            <Route exact path="/govt" element={<GovtJobs />} />
-            <Route exact path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route
-              exact
-              path="/terms-and-services"
-              element={<TermsAndServices />}
-            />
-          </Routes>
+          <AuthProvider>
+            <ScrollToTop />
+            <Navbar />
+            <Routes>
+              <Route exact path="/" element={<Home />} />
+              <Route exact path="/contact" element={<Contact />} />
+              <Route
+                exact
+                path="/:university/:id"
+                element={<UniversityPage />}
+              />
+              <Route
+                exact
+                path="/:university/:id/:coursename/:courseid"
+                element={<Courses />}
+              />
+              <Route
+                exact
+                path="/:university/:id/:coursename/:courseid/:module/:moduleid"
+                element={<Module />}
+              />
+              <Route exact path="/joinus" element={<JoinUs />} />
+              <Route exact path="/govt" element={<GovtJobs />} />
+              <Route exact path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route
+                exact
+                path="/terms-and-services"
+                element={<TermsAndServices />}
+              />
+            </Routes>
 
-          <Footer />
+            <Footer />
+          </AuthProvider>
         </BrowserRouter>
       </HelmetProvider>
     </>

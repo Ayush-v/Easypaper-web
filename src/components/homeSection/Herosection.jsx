@@ -21,7 +21,7 @@ const Herosection = () => {
                 to="download"
                 smooth={true}
                 duration={1000}
-                className="text-lg text-white bg-black px-6 py-4 hover:bg-transparent hover:text-black hover:ring-1 hover:ring-black active:bg-black active:text-white transition-all duration-300 rounded-xl cursor-pointer"
+                className="text-lg text-white bg-black px-6 py-4 rounded-xl cursor-pointer"
               >
                 Download App
               </LinkS>

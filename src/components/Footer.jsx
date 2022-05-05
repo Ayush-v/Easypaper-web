@@ -1,37 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import Logo from "../assets/Logo.svg";
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
+import React from "react";
+import { Link } from "react-router-dom";
+import { ReactComponent as Logo } from "../assets/easylogo.svg";
 
 const Footer = () => {
-  const [footerHide, setFooterHide] = useState(false);
-  const location = useLocation();
-
-  useEffect(() => {
-    if (location.pathname === "/signup" || location.pathname === "/login") {
-      setFooterHide(true);
-    } else {
-      setFooterHide(false);
-    }
-  }, [footerHide, location]);
-
   return (
     <>
-      <footer
-        className={classNames(
-          footerHide ? "hidden" : "visible",
-          "bg-[#F8F8FA]"
-        )}
-      >
+      <footer className="bg-[#F8F8FA]">
         <div className="max-w-[1234px] mx-auto px-8 py-10">
           <div className="flex items-center md:justify-between flex-col md:flex-row">
-            {/* left section */}
             <div>
               <div className="flex items-center gap-2">
-                <img src={Logo} alt="logo" />
+                <Logo className="w-[42px]" />
                 <h1 className="text-3xl">Easypaper</h1>
               </div>
               <p className="text-[#606060]">
@@ -64,7 +43,6 @@ const Footer = () => {
                 </a>
               </div>
             </div>
-            {/* right section */}
             <div className="flex flex-col md:flex-row gap-4 md:gap-12 mt-7">
               <div className="text-center md:text-left">
                 <h1 className="text-xl text-[#2F5CE8] mb-4">Company</h1>

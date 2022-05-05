@@ -54,7 +54,7 @@ const Module = () => {
         </div>
         <div className="mt-6">
           <Tab.Group>
-            <Tab.List className="flex space-x-1 rounded-xl bg-white drop-shadow-lg px-5 transition duration-300 ease-in-out overflow-scroll scroll-hide min-w-[500px]">
+            <Tab.List className="flex space-x-4 rounded-xl bg-white drop-shadow-lg px-5 transition duration-300 ease-in-out overflow-scroll scroll-hide">
               {data &&
                 data.semesters.map((index) => (
                   <Tab
@@ -75,7 +75,7 @@ const Module = () => {
                       <button
                         className={selected ? "text-white" : "text-black"}
                       >
-                        {index.SemName}
+                        <p className="w-[90px] md:w-auto">{index.SemName}</p>
                       </button>
                     )}
                   </Tab>

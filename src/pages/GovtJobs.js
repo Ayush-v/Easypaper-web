@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { Helmet } from "react-helmet-async";
 import Lottie from "lottie-web";
-import rocket from "../assets/rocket.json";
+import rocket from "../assets/lottie/rocket.json";
 
 const GovtJobs = () => {
   const container = useRef(null);

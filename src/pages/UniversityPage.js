@@ -8,40 +8,36 @@ function classNames(...classes) {
 }
 
 const UniversityPage = () => {
-  // const location = useLocation();
-
-  // const { title, image } = location.state;
-
   const { id, university } = useParams();
   const [coursesData, setCoursedData] = useState(null);
   const [type, setType] = useState("");
 
-  const parameters = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-    body: new URLSearchParams({
-      uniId: id,
-      type: type,
-    }),
-  };
-
-  const api = async () => {
-    try {
-      await fetch("/user/getAllCourses", parameters)
-        .then((res) => {
-          return res.json();
-        })
-        .then((data) => {
-          setCoursedData(data.responseData);
-        });
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   useEffect(() => {
+    const parameters = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: new URLSearchParams({
+        uniId: id,
+        type: type,
+      }),
+    };
+
+    const api = async () => {
+      try {
+        await fetch("/user/getAllCourses", parameters)
+          .then((res) => {
+            return res.json();
+          })
+          .then((data) => {
+            setCoursedData(data.responseData);
+          });
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
     api();
   }, [type]);
 
@@ -59,7 +55,7 @@ const UniversityPage = () => {
         </h3>
         <div className="mt-6">
           <Tab.Group>
-            <Tab.List className="flex space-x-1 rounded-xl bg-white drop-shadow-lg px-5 transition duration-300 ease-in-out">
+            <Tab.List className="flex space-x-4 md:space-x-2 rounded-xl bg-white drop-shadow-lg px-5 transition duration-300 ease-in-out overflow-scroll scroll-hide">
               {coursesData &&
                 coursesData.course_types.map((index) => (
                   <Tab
@@ -80,7 +76,7 @@ const UniversityPage = () => {
                         className={selected ? "text-white" : "text-black"}
                         onClick={() => setType(index.id)}
                       >
-                        {index.name}
+                        <p className="min-w-[90px]">{index.name}</p>
                       </button>
                     )}
                   </Tab>

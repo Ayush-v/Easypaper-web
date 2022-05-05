@@ -1,9 +1,9 @@
 import React from "react";
 
-import login from "../../assets/workingImages/login.png";
-import course from "../../assets/workingImages/course.png";
-import sem from "../../assets/workingImages/sem.png";
-import pay from "../../assets/workingImages/pay.png";
+import login from "../../assets/howItworks/login.png";
+import course from "../../assets/howItworks/course.png";
+import sem from "../../assets/howItworks/sem.png";
+import pay from "../../assets/howItworks/pay.png";
 
 const Worksection = () => {
   return (

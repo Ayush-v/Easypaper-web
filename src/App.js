@@ -6,7 +6,7 @@ import Contact from "./pages/Contact";
 import GovtJobs from "./pages/GovtJobs";
 import Home from "./pages/Home";
 import ScrollToTop from "./ScrollToTop";
-import Logo from "./assets/Logo.svg";
+import logo from "./assets/easylogo.svg";
 import Footer from "./components/Footer";
 import UniversityPage from "./pages/UniversityPage";
 import Courses from "./pages/Courses";
@@ -20,7 +20,7 @@ function App() {
     <>
       <HelmetProvider>
         <Helmet>
-          <link rel="icon" type="image/x-icon" href={Logo}></link>
+          <link rel="icon" type="image/x-icon" href={logo}></link>
         </Helmet>
         <BrowserRouter>
           <AuthProvider>

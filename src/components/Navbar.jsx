@@ -12,7 +12,7 @@ const Navbar = () => {
     <header className="fixed top-0 z-50 w-full mx-auto bg-white/[0.4] backdrop-blur-xl">
       <div className="flex justify-between items-center max-w-[1234px] mx-auto h-[60px] p-8">
         <Link to="/" className="flex items-center gap-2">
-          <img src={logo} alt="" className="max-w-[42px]" />
+          <img src={logo} alt="" className="max-w-[42px] rounded-[10px]" />
         </Link>
 
         <button

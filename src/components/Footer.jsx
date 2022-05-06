@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ReactComponent as Logo } from "../assets/easylogo.svg";
+import logo from "../assets/easylogo.svg";
 
 const Footer = () => {
   return (
@@ -10,7 +10,11 @@ const Footer = () => {
           <div className="flex items-center md:justify-between flex-col md:flex-row">
             <div>
               <div className="flex items-center gap-2">
-                <Logo className="w-[42px]" />
+                <img
+                  src={logo}
+                  alt=""
+                  className="max-w-[42px] rounded-[10px]"
+                />
                 <h1 className="text-3xl">Easypaper</h1>
               </div>
               <p className="text-[#606060]">

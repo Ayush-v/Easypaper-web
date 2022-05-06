@@ -52,8 +52,10 @@ function App() {
                 path="/terms-and-services"
                 element={<TermsAndServices />}
               />
+              {/* <Route path="*">
+                <h1>404 Error</h1>
+              </Route> */}
             </Routes>
-
             <Footer />
           </AuthProvider>
         </BrowserRouter>

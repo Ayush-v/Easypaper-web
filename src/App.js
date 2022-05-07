@@ -23,41 +23,41 @@ function App() {
           <link rel="icon" type="image/x-icon" href={logo}></link>
         </Helmet>
         <BrowserRouter>
-          <AuthProvider>
-            <ScrollToTop />
-            <Navbar />
-            <Routes>
-              <Route exact path="/" element={<Home />} />
-              <Route exact path="/contact" element={<Contact />} />
-              <Route
-                exact
-                path="/:university/:id"
-                element={<UniversityPage />}
-              />
-              <Route
-                exact
-                path="/:university/:id/:coursename/:courseid"
-                element={<Courses />}
-              />
-              <Route
-                exact
-                path="/:university/:id/:coursename/:courseid/:module/:moduleid"
-                element={<Module />}
-              />
-              <Route exact path="/joinus" element={<JoinUs />} />
-              <Route exact path="/govt" element={<GovtJobs />} />
-              <Route exact path="/privacy-policy" element={<PrivacyPolicy />} />
-              <Route
-                exact
-                path="/terms-and-services"
-                element={<TermsAndServices />}
-              />
-              {/* <Route path="*">
+          {/* <AuthProvider> */}
+          <Navbar />
+          {/* </AuthProvider> */}
+          <ScrollToTop />
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/contact" element={<Contact />} />
+            <Route exact path="/:university/:id" element={<UniversityPage />} />
+            <Route
+              exact
+              path="/:university/:id/:coursename/:courseid"
+              element={<Courses />}
+            />
+            <Route
+              exact
+              path="/:university/:id/:coursename/:courseid/:module/:moduleid"
+              element={
+                <AuthProvider>
+                  <Module />
+                </AuthProvider>
+              }
+            />
+            <Route exact path="/joinus" element={<JoinUs />} />
+            <Route exact path="/govt" element={<GovtJobs />} />
+            <Route exact path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route
+              exact
+              path="/terms-and-services"
+              element={<TermsAndServices />}
+            />
+            {/* <Route path="*">
                 <h1>404 Error</h1>
               </Route> */}
-            </Routes>
-            <Footer />
-          </AuthProvider>
+          </Routes>
+          <Footer />
         </BrowserRouter>
       </HelmetProvider>
     </>

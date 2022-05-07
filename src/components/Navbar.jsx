@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Link as LinkS } from "react-scroll";
 import LoginModal from "./LoginModal";
 import logo from "../assets/logo.png";
+import AuthProvider from "../contexts/AuthContext";
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
@@ -65,7 +66,9 @@ const Navbar = () => {
               Join Us
             </Link>
           </ul>
-          <LoginModal navState={show} setNavState={setShow} />
+          <AuthProvider>
+            <LoginModal navState={show} setNavState={setShow} />
+          </AuthProvider>
         </nav>
       </div>
     </header>

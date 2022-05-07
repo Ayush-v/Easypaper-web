@@ -2,6 +2,7 @@ import React from "react";
 import Heroimage from "../../assets/heroImage.png";
 import lines from "../../assets/lines.png";
 import { Link as LinkS } from "react-scroll";
+import { Fade } from "react-reveal";
 
 const Herosection = () => {
   return (
@@ -10,13 +11,17 @@ const Herosection = () => {
         <div className="flex md:flex-row flex-col gap-8 items-center justify-center max-w-screen-lg mx-auto py-20 md:py-30 px-8">
           <div className="max-w-[1fr] relative">
             <div className="w-[80%]">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl">
-                Welcome To <span className="text-[#3675F0]">EasyPaper</span>
-              </h1>
-              <img src={lines} alt="" className="absolute -top-4 -left-7" />
-              <p className="text-lg text-gray-400 md:max-w-[75%] mt-2 mb-8">
-                one stop solution for your upcoming Uni Exam and many more...
-              </p>
+              <Fade bottom cascade>
+                <h1 className="text-5xl md:text-6xl lg:text-7xl">
+                  Welcome To <span className="text-[#3675F0]">EasyPaper</span>
+                </h1>
+                <img src={lines} alt="" className="absolute -top-4 -left-7" />
+
+                <p className="text-lg text-gray-400 md:max-w-[75%] mt-2 mb-8">
+                  one stop solution for your upcoming Uni Exam and many more...
+                </p>
+              </Fade>
+
               <LinkS
                 to="download"
                 smooth={true}

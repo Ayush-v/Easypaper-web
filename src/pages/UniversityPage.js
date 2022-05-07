@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Tab } from "@headlessui/react";
 import Spinner from "../components/Spinner";
+import { Fade } from "react-reveal";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");

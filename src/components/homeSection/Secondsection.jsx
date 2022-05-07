@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import puc from "../../assets/uni/puc.png";
 import gndu from "../../assets/uni/gndu.png";
 import pup from "../../assets/uni/pu_p.png";
+import { Fade } from "react-reveal";
 
 const unidata = [
   {
@@ -68,19 +69,20 @@ const Secondsection = () => {
         <h1 className="text-3xl md:text-4xl max-w-[450px] w-auto">
           We are happy to Say that we work with
         </h1>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-28 justify-items-center mt-24">
-          {unidata.map((index) => (
-            <div key={index.id}>
-              <UniCols
-                title={index.title}
-                desc={index.describe}
-                to={`/${index.title.trim()}/${index.uniId}`}
-                image={index.image}
-                // state={{ title: index.title, image: index.image }}
-              />
-            </div>
-          ))}
-        </div>
+        <Fade bottom cascade>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-28 justify-items-center mt-24">
+            {unidata.map((index) => (
+              <div key={index.id}>
+                <UniCols
+                  title={index.title}
+                  desc={index.describe}
+                  to={`/${index.title.trim()}/${index.uniId}`}
+                  image={index.image}
+                />
+              </div>
+            ))}
+          </div>
+        </Fade>
       </section>
     </>
   );

@@ -1,6 +1,6 @@
 import React from "react";
-import Heroimage from "../../assets/heroImage.png";
-import lines from "../../assets/lines.png";
+import Heroimage from "../../assets/home/heroImage.webp";
+import lines from "../../assets/home/lines.png";
 import { Link as LinkS } from "react-scroll";
 import { Fade } from "react-reveal";
 

@@ -1,9 +1,9 @@
 import React from "react";
 
-import login from "../../assets/howItworks/login.png";
-import course from "../../assets/howItworks/course.png";
-import sem from "../../assets/howItworks/sem.png";
-import pay from "../../assets/howItworks/pay.png";
+import login from "../../assets/howItworks/login.webp";
+import course from "../../assets/howItworks/course.webp";
+import sem from "../../assets/howItworks/sem.webp";
+import pay from "../../assets/howItworks/pay.webp";
 import { Fade } from "react-reveal";
 
 const Worksection = () => {

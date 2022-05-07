@@ -2,9 +2,9 @@ import React from "react";
 import { ArrowSmRightIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
 
-import puc from "../../assets/uni/puc.png";
-import gndu from "../../assets/uni/gndu.png";
-import pup from "../../assets/uni/pu_p.png";
+import puc from "../../assets/uni/puc.webp";
+import gndu from "../../assets/uni/gndu.webp";
+import pup from "../../assets/uni/pu_p.webp";
 import { Fade } from "react-reveal";
 
 const unidata = [

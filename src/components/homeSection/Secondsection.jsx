@@ -1,11 +1,11 @@
 import React from "react";
 import { ArrowSmRightIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 import puc from "../../assets/uni/puc.webp";
 import gndu from "../../assets/uni/gndu.webp";
 import pup from "../../assets/uni/pu_p.webp";
-import { Fade } from "react-reveal";
 
 const unidata = [
   {
@@ -69,20 +69,28 @@ const Secondsection = () => {
         <h1 className="text-3xl md:text-4xl max-w-[450px] w-auto">
           We are happy to Say that we work with
         </h1>
-        <Fade bottom cascade>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-28 justify-items-center mt-24">
-            {unidata.map((index) => (
-              <div key={index.id}>
-                <UniCols
-                  title={index.title}
-                  desc={index.describe}
-                  to={`/${index.title.trim()}/${index.uniId}`}
-                  image={index.image}
-                />
-              </div>
-            ))}
-          </div>
-        </Fade>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-28 justify-items-center mt-24">
+          {unidata.map((index) => (
+            <motion.div
+              key={index.id}
+              initial={{ opacity: 0, translateY: 30 }}
+              whileInView={{ opacity: 1, translateY: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.5,
+                delay: index.id * 0.1,
+                ease: "easeIn",
+              }}
+            >
+              <UniCols
+                title={index.title}
+                desc={index.describe}
+                to={`/${index.title.trim()}/${index.uniId}`}
+                image={index.image}
+              />
+            </motion.div>
+          ))}
+        </div>
       </section>
     </>
   );

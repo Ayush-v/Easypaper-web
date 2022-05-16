@@ -101,7 +101,7 @@ const LoginModal = ({ navState, setNavState }) => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-md transform rounded-2xl bg-white p-6 text-center align-middle shadow-xl transition-all">
+                <Dialog.Panel className="w-full max-w-md transform rounded-2xl bg-white p-6 text-center align-middle shadow-xl transition-all outline-none">
                   <div className="flex justify-start items-center gap-2">
                     <Logo className="w-[42px]" />
                     <h1 className="text-2xl">Easypaper</h1>

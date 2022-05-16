@@ -14,6 +14,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndServices from "./pages/TermsAndServices";
 import Module from "./pages/Module";
 import AuthProvider from "./contexts/AuthContext";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -53,9 +54,7 @@ function App() {
               path="/terms-and-services"
               element={<TermsAndServices />}
             />
-            {/* <Route path="*">
-                <h1>404 Error</h1>
-              </Route> */}
+            <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
         </BrowserRouter>

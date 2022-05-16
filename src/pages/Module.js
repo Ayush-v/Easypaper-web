@@ -36,10 +36,18 @@ const Module = () => {
             }
             return res.json();
           })
-          .then((data) => {
-            setData(data.responseData);
+          .then((datas) => {
+            setData(datas.responseData);
             setIsLoading(false);
             setError(null);
+
+            test();
+
+            // if (datas.responseData.subject_listing[0].includes("content")) {
+            //   console.log("have");
+            // } else {
+            //   console.log("no have");
+            // }
           });
       } catch (err) {
         setError(err.message);
@@ -49,6 +57,15 @@ const Module = () => {
 
     Api();
   }, [selectedTab, moduleid]);
+
+  // const result = Array.isArray(index) ? index.includes("subject_name") : false;
+  // console.log(result);
+
+  function test() {
+    const ab = data.subject_listing;
+    const result = Array.isArray(ab) ? ab.includes("subject_name") : false;
+    console.log(result);
+  }
 
   return (
     <>
@@ -99,7 +116,7 @@ const Module = () => {
                       <Disclosure>
                         {data &&
                           data.subject_listing.map((index) => (
-                            <div key={index.id}>
+                            <div key={index.subject_id}>
                               <Disclosure.Button className="w-full border-l-4 mb-5 rounded-[2px] border-gray-200 hover:border-[#3E6ADB] hover:-translate-x-1 hover:-translate-y-1  group transition duration-500 ease-in-out">
                                 <div className="bg-white shadow-md group-hover:shadow-lg px-4 py-4 ml-4 flex rounded-lg items-center gap-4">
                                   <h1>{index.subject_name}</h1>
@@ -114,6 +131,37 @@ const Module = () => {
                                 leaveTo="transform scale-95 opacity-0"
                               >
                                 <Disclosure.Panel className="w-full">
+                                  {/* {Object.values(index).includes("content") ? (
+                                    index.content.map((i) => (
+                                      <div key={i.id}>
+                                        <a
+                                          href={i.pdf_file}
+                                          target="_blank"
+                                          rel="noreferrer"
+                                          className="cursor-pointer"
+                                        >
+                                          {i.year}
+                                        </a>
+                                      </div>
+                                    ))
+                                  ) : (
+                                    <div>
+                                      <a
+                                        href={index.pdf_file}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        className="cursor-pointer"
+                                      >
+                                        see
+                                      </a>
+                                    </div>
+                                  )} */}
+                                  {/* {Object.values(index).includes("subject_name")
+                                    ? console.log("yes")
+                                    : console.log("no")} */}
+                                  {/* {Array.isArray(index)
+                                    ? index.includes("subject_name")
+                                    : false} */}
                                   {index.content.map((i) => (
                                     <div key={i.id}>
                                       <a

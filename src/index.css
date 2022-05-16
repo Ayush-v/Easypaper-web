@@ -62,3 +62,8 @@ body {
     -webkit-filter: hue-rotate(-360deg);
   }
 }
+
+.active {
+  color: #2f5ce8;
+  border-bottom: 1px solid #2f5ce8;
+}

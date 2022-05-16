@@ -4,22 +4,52 @@ import { ReactComponent as Iphone } from "../../assets/downloadapp/iphone.svg";
 import { ReactComponent as Appstore } from "../../assets/downloadapp/appstore.svg";
 import { ReactComponent as Playstore } from "../../assets/downloadapp/playstore.svg";
 
+import { motion } from "framer-motion";
+
+const container = {
+  hidden: { opacity: 0, translateY: 30 },
+  show: {
+    opacity: 1,
+    translateY: 0,
+    transition: {
+      staggerChildren: 0.3,
+      when: "beforeChildren",
+    },
+  },
+};
+
+const item = {
+  hidden: { opacity: 0, translateY: 30 },
+  show: { opacity: 1, translateY: 0 },
+};
+
 const DownloadAppSection = () => {
   return (
     <>
       <section className="max-w-screen-lg mx-auto mb-24 mt-52" id="download">
-        <div className="flex flex-col md:flex-row justify-evenly items-center mx-3 p-8 md:p-0 bg-[#F8F8FA] drop-shadow-lg rounded-[40px]">
+        <motion.div className="flex flex-col md:flex-row justify-evenly items-center mx-3 p-8 md:p-0 bg-[#F8F8FA] shadow-lg rounded-[40px]">
           <div className="-translate-y-[160px]">
             <Iphone className="max-w-[328px] max-h-[678.27px]" />
           </div>
-          <div className="md:w-1/3 -mt-32 md:m-0">
-            <h1 className="text-3xl ">Download Mobile App</h1>
-            <p className="opacity-50 mt-2">
+          <motion.div
+            className="md:w-1/3 -mt-32 md:m-0"
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+          >
+            <motion.h1 variants={item} className="text-3xl ">
+              Download Mobile App
+            </motion.h1>
+            <motion.p variants={item} className="opacity-50 mt-2">
               Download easy paper app on Android and IOS. For more features like
               solved question papers,Important questions and many more...
-            </p>
+            </motion.p>
 
-            <div className="mt-6 flex flex-col items-start gap-5">
+            <motion.div
+              variants={item}
+              className="mt-6 flex flex-col items-start gap-5"
+            >
               <p className="opacity-50">Available on the</p>
               <a
                 href="https://apps.apple.com/in/app/easypaper/id1490101799"
@@ -39,9 +69,9 @@ const DownloadAppSection = () => {
                 <Playstore className="w-[44px] h-[44px]" />
                 <h1>Play Store</h1>
               </a>
-            </div>
-          </div>
-        </div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
       </section>
     </>
   );

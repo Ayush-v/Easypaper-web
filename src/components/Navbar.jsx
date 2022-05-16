@@ -98,7 +98,6 @@ const UniLink = ({ show, setShow }) => {
         to="university"
         smooth={true}
         spy={true}
-        exact={true}
         offset={-90}
         duration={1000}
         onClick={() => setShow(!show)}

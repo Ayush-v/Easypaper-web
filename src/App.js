@@ -24,9 +24,7 @@ function App() {
           <link rel="icon" type="image/x-icon" href={logo}></link>
         </Helmet>
         <BrowserRouter>
-          {/* <AuthProvider> */}
           <Navbar />
-          {/* </AuthProvider> */}
           <ScrollToTop />
           <Routes>
             <Route exact path="/" element={<Home />} />
@@ -39,7 +37,7 @@ function App() {
             />
             <Route
               exact
-              path="/:university/:id/:coursename/:courseid/:module/:moduleid"
+              path="/:university/:id/:coursename/:courseid/:module/:moduleid/:layout"
               element={
                 <AuthProvider>
                   <Module />

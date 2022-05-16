@@ -72,7 +72,7 @@ const Courses = () => {
               data.courseModules.map((index) => (
                 <Link
                   key={index.id}
-                  to={`/${university}/${id}/${coursename}/${courseid}/${index.name}/${index.id}`}
+                  to={`/${university}/${id}/${coursename}/${courseid}/${index.name}/${index.id}/${index.layout_type}`}
                   className="cursor-pointer"
                 >
                   <div className="bg-white shadow-md rounded-lg mb-3 p-8 flex items-center gap-3 hover:shadow-lg hover:-translate-x-1 hover:-translate-y-1 transition duration-300 ease-in-out">

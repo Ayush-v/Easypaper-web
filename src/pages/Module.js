@@ -9,7 +9,7 @@ function classNames(...classes) {
 }
 
 const Module = () => {
-  const { module, moduleid, coursename } = useParams();
+  const { module, moduleid, coursename, layout } = useParams();
   const [data, setData] = useState(null);
   const [selectedTab, setSelectedTab] = useState("");
   const [loading, setIsLoading] = useState(true);
@@ -40,14 +40,6 @@ const Module = () => {
             setData(datas.responseData);
             setIsLoading(false);
             setError(null);
-
-            test();
-
-            // if (datas.responseData.subject_listing[0].includes("content")) {
-            //   console.log("have");
-            // } else {
-            //   console.log("no have");
-            // }
           });
       } catch (err) {
         setError(err.message);
@@ -57,15 +49,6 @@ const Module = () => {
 
     Api();
   }, [selectedTab, moduleid]);
-
-  // const result = Array.isArray(index) ? index.includes("subject_name") : false;
-  // console.log(result);
-
-  function test() {
-    const ab = data.subject_listing;
-    const result = Array.isArray(ab) ? ab.includes("subject_name") : false;
-    console.log(result);
-  }
 
   return (
     <>
@@ -112,70 +95,70 @@ const Module = () => {
               {data &&
                 data.semesters.map((index) => (
                   <Tab.Panel key={index.id}>
-                    <div className="bg-white shadow-md group-hover:shadow-lg mb-5">
+                    <div>
                       <Disclosure>
                         {data &&
                           data.subject_listing.map((index) => (
-                            <div key={index.subject_id}>
-                              <Disclosure.Button className="w-full border-l-4 mb-5 rounded-[2px] border-gray-200 hover:border-[#3E6ADB] hover:-translate-x-1 hover:-translate-y-1  group transition duration-500 ease-in-out">
-                                <div className="bg-white shadow-md group-hover:shadow-lg px-4 py-4 ml-4 flex rounded-lg items-center gap-4">
-                                  <h1>{index.subject_name}</h1>
-                                </div>
-                              </Disclosure.Button>
-                              <Transition
-                                enter="transition duration-100 ease-out"
-                                enterFrom="transform scale-95 opacity-0"
-                                enterTo="transform scale-100 opacity-100"
-                                leave="transition duration-75 ease-out"
-                                leaveFrom="transform scale-100 opacity-100"
-                                leaveTo="transform scale-95 opacity-0"
-                              >
-                                <Disclosure.Panel className="w-full">
-                                  {/* {Object.values(index).includes("content") ? (
-                                    index.content.map((i) => (
-                                      <div key={i.id}>
-                                        <a
-                                          href={i.pdf_file}
-                                          target="_blank"
-                                          rel="noreferrer"
-                                          className="cursor-pointer"
-                                        >
-                                          {i.year}
-                                        </a>
-                                      </div>
-                                    ))
-                                  ) : (
-                                    <div>
+                            <div
+                              key={index.subject_id}
+                              className="mb-5 border-l-4 rounded-[2px] border-gray-200 hover:border-[#3E6ADB] hover:-translate-x-1 hover:-translate-y-1  group transition duration-500 ease-in-out"
+                            >
+                              <div className="bg-white shadow-md group-hover:shadow-lg px-4 py-4 rounded-lg ml-4">
+                                <Disclosure.Button className="w-full">
+                                  <div className="text-left">
+                                    <h1>{index.subject_name}</h1>
+                                  </div>
+                                </Disclosure.Button>
+                                <Transition
+                                  enter="transition duration-100 ease-out"
+                                  enterFrom="transform scale-95 opacity-0"
+                                  enterTo="transform scale-100 opacity-100"
+                                  leave="transition duration-75 ease-out"
+                                  leaveFrom="transform scale-100 opacity-100"
+                                  leaveTo="transform scale-95 opacity-0"
+                                >
+                                  <Disclosure.Panel className="w-full mt-4">
+                                    {layout === "layout-2" ? (
+                                      index.content.map((i) => (
+                                        <div key={i.id}>
+                                          <a
+                                            href={i.pdf_file}
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            className="hover:text-blue-300 transition duration-200"
+                                          >
+                                            {i.year}
+                                          </a>
+                                        </div>
+                                      ))
+                                    ) : layout === "layout-3" ? (
+                                      index.unit.map((i) =>
+                                        i.content.map((ii, id) => (
+                                          <div key={id}>
+                                            <a
+                                              href={ii.pdf_file}
+                                              target="_blank"
+                                              rel="noreferrer"
+                                              className="hover:text-blue-300 transition duration-200"
+                                            >
+                                              show file
+                                            </a>
+                                          </div>
+                                        ))
+                                      )
+                                    ) : layout === "layout-1" ? (
                                       <a
                                         href={index.pdf_file}
                                         target="_blank"
                                         rel="noreferrer"
-                                        className="cursor-pointer"
+                                        className="hover:text-blue-300 transition duration-200"
                                       >
-                                        see
+                                        show file
                                       </a>
-                                    </div>
-                                  )} */}
-                                  {/* {Object.values(index).includes("subject_name")
-                                    ? console.log("yes")
-                                    : console.log("no")} */}
-                                  {/* {Array.isArray(index)
-                                    ? index.includes("subject_name")
-                                    : false} */}
-                                  {index.content.map((i) => (
-                                    <div key={i.id}>
-                                      <a
-                                        href={i.pdf_file}
-                                        target="_blank"
-                                        rel="noreferrer"
-                                        className="cursor-pointer"
-                                      >
-                                        {i.year}
-                                      </a>
-                                    </div>
-                                  ))}
-                                </Disclosure.Panel>
-                              </Transition>
+                                    ) : null}
+                                  </Disclosure.Panel>
+                                </Transition>
+                              </div>
                             </div>
                           ))}
                       </Disclosure>

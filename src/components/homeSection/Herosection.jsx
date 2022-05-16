@@ -47,23 +47,22 @@ const Herosection = () => {
                 one stop solution for your upcoming Uni Exam and many more...
               </motion.p>
 
-              <LinkS
-                as={motion.div}
-                variants={item}
-                to="download"
-                smooth={true}
-                spy={true}
-                exact={true}
-                duration={1000}
-                className="text-lg text-white bg-black px-6 py-4 rounded-xl cursor-pointer"
-              >
-                Download App
-              </LinkS>
+              <motion.div variants={item}>
+                <LinkS
+                  to="download"
+                  smooth={true}
+                  spy={true}
+                  duration={1000}
+                  className="text-lg text-white bg-black px-6 py-4 rounded-xl cursor-pointer"
+                >
+                  Download App
+                </LinkS>
+              </motion.div>
             </motion.div>
           </div>
           <motion.div
             className="max-w-[1fr]"
-            initial={{ opacity: 0, translateY: -90 }}
+            initial={{ opacity: 0, translateY: -50 }}
             animate={{ opacity: 1, translateY: 0 }}
             transition={{ duration: 1.5 }}
           >

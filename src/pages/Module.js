@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { useParams } from "react-router-dom";
 import { Tab, Disclosure, Transition } from "@headlessui/react";
 import Spinner from "../components/Spinner";
+import { ChevronUpIcon } from "@heroicons/react/outline";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -95,74 +96,84 @@ const Module = () => {
               {data &&
                 data.semesters.map((index) => (
                   <Tab.Panel key={index.id}>
-                    <div>
-                      <Disclosure>
-                        {data &&
-                          data.subject_listing.map((index) => (
-                            <div
-                              key={index.subject_id}
-                              className="mb-5 border-l-4 rounded-[2px] border-gray-200 hover:border-[#3E6ADB] hover:-translate-x-1 hover:-translate-y-1  group transition duration-500 ease-in-out"
-                            >
-                              <div className="bg-white shadow-md group-hover:shadow-lg px-4 py-4 rounded-lg ml-4">
-                                <Disclosure.Button className="w-full">
-                                  <div className="text-left">
-                                    <h1>{index.subject_name}</h1>
-                                  </div>
-                                </Disclosure.Button>
-                                <Transition
-                                  enter="transition duration-100 ease-out"
-                                  enterFrom="transform scale-95 opacity-0"
-                                  enterTo="transform scale-100 opacity-100"
-                                  leave="transition duration-75 ease-out"
-                                  leaveFrom="transform scale-100 opacity-100"
-                                  leaveTo="transform scale-95 opacity-0"
-                                >
-                                  <Disclosure.Panel className="w-full mt-4">
-                                    {layout === "layout-2" ? (
-                                      index.content.map((i) => (
-                                        <div key={i.id}>
+                    {data &&
+                      data.subject_listing.map((index) => (
+                        <div key={index.subject_id}>
+                          <Disclosure as="div">
+                            {({ open }) => (
+                              <>
+                                <div className="mb-5 border-l-4 rounded-[2px] border-gray-200 hover:border-[#3E6ADB] hover:-translate-x-1 hover:-translate-y-1  group transition duration-500 ease-in-out">
+                                  <div className="bg-white shadow-md group-hover:shadow-lg  rounded-lg ml-4 px-2 py-2">
+                                    <Disclosure.Button
+                                      as={Fragment}
+                                      className="flex justify-between items-center w-full cursor-default p-3 rounded-lg"
+                                    >
+                                      <div>
+                                        <span>{index.subject_name}</span>
+                                        <ChevronUpIcon
+                                          className={`${
+                                            open ? "rotate-180 transform" : ""
+                                          } h-5 w-5 text-[#3E6ADB]`}
+                                        />
+                                      </div>
+                                    </Disclosure.Button>
+                                    <Transition
+                                      show={open}
+                                      enter="transition duration-100 ease-out"
+                                      enterFrom="transform scale-95 opacity-0"
+                                      enterTo="transform scale-100 opacity-100"
+                                      leave="transition duration-100 ease-out"
+                                      leaveFrom="transform scale-100 opacity-100"
+                                      leaveTo="transform scale-95 opacity-0"
+                                    >
+                                      <Disclosure.Panel className="w-full mt-2 px-3 text-slate-700">
+                                        {layout === "layout-2" ? (
+                                          index.content.map((i) => (
+                                            <div key={i.id}>
+                                              <a
+                                                href={i.pdf_file}
+                                                target="_blank"
+                                                rel="noreferrer"
+                                                className="hover:text-[#3E6ADB] transition duration-200"
+                                              >
+                                                {i.year}
+                                              </a>
+                                            </div>
+                                          ))
+                                        ) : layout === "layout-3" ? (
+                                          index.unit.map((i) =>
+                                            i.content.map((ii, id) => (
+                                              <div key={id}>
+                                                <a
+                                                  href={ii.pdf_file}
+                                                  target="_blank"
+                                                  rel="noreferrer"
+                                                  className="hover:text-[#3E6ADB] transition duration-200"
+                                                >
+                                                  {ii.topic_name}
+                                                </a>
+                                              </div>
+                                            ))
+                                          )
+                                        ) : layout === "layout-1" ? (
                                           <a
-                                            href={i.pdf_file}
+                                            href={index.pdf_file}
                                             target="_blank"
                                             rel="noreferrer"
-                                            className="hover:text-blue-300 transition duration-200"
+                                            className="hover:text-[#3E6ADB] transition duration-200"
                                           >
-                                            {i.year}
+                                            show file
                                           </a>
-                                        </div>
-                                      ))
-                                    ) : layout === "layout-3" ? (
-                                      index.unit.map((i) =>
-                                        i.content.map((ii, id) => (
-                                          <div key={id}>
-                                            <a
-                                              href={ii.pdf_file}
-                                              target="_blank"
-                                              rel="noreferrer"
-                                              className="hover:text-blue-300 transition duration-200"
-                                            >
-                                              show file
-                                            </a>
-                                          </div>
-                                        ))
-                                      )
-                                    ) : layout === "layout-1" ? (
-                                      <a
-                                        href={index.pdf_file}
-                                        target="_blank"
-                                        rel="noreferrer"
-                                        className="hover:text-blue-300 transition duration-200"
-                                      >
-                                        show file
-                                      </a>
-                                    ) : null}
-                                  </Disclosure.Panel>
-                                </Transition>
-                              </div>
-                            </div>
-                          ))}
-                      </Disclosure>
-                    </div>
+                                        ) : null}
+                                      </Disclosure.Panel>
+                                    </Transition>
+                                  </div>
+                                </div>
+                              </>
+                            )}
+                          </Disclosure>
+                        </div>
+                      ))}
                   </Tab.Panel>
                 ))}
             </Tab.Panels>

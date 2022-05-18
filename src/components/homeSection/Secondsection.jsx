@@ -8,6 +8,21 @@ import puc from "../../assets/uni/puc.webp";
 import gndu from "../../assets/uni/gndu.webp";
 import pup from "../../assets/uni/pu_p.webp";
 
+const container = {
+  hidden: {
+    opacity: 0,
+    translateY: 30,
+  },
+  show: {
+    opacity: 1,
+    translateY: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeIn",
+    },
+  },
+};
+
 const unidata = [
   {
     describe:
@@ -58,9 +73,14 @@ const Secondsection = () => {
   return (
     <>
       <section id="university" className="max-w-screen-lg mx-auto p-8 my-20">
-        <h1 className="text-3xl md:text-4xl max-w-[450px] w-auto">
+        <motion.h1
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="text-3xl md:text-4xl max-w-[450px] w-auto"
+        >
           We are happy to Say that we work with
-        </h1>
+        </motion.h1>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-28 justify-items-center mt-24">
           {uniData &&
             uniData.map((i, index) =>
@@ -101,13 +121,10 @@ export default Secondsection;
 const UniCols = ({ title, desc, to, image, state }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, translateY: 30 }}
-      whileInView={{ opacity: 1, translateY: 0 }}
+      variants={container}
+      initial="hidden"
+      whileInView="show"
       viewport={{ once: true }}
-      transition={{
-        duration: 0.5,
-        ease: "easeIn",
-      }}
       className="bg-white shadow-lg rounded-[30px] relative max-w-[450px] h-full p-4"
     >
       <div className="absolute -top-24 left-3">

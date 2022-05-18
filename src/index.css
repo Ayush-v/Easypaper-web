@@ -67,3 +67,7 @@ body {
   color: #2f5ce8;
   border-bottom: 1px solid #2f5ce8;
 }
+
+.clipping {
+  clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - 45px), 0% 100%);
+}

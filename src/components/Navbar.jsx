@@ -3,7 +3,7 @@ import { MenuAlt1Icon, XIcon } from "@heroicons/react/outline";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { Link as LinkS } from "react-scroll";
 import LoginModal from "./LoginModal";
-import AuthProvider from "../contexts/AuthContext";
+// import AuthProvider from "../contexts/AuthContext";
 import { motion } from "framer-motion";
 import Logo from "./Logo";
 
@@ -77,9 +77,9 @@ const Navbar = () => {
               Join Us
             </NavLink>
           </ul>
-          <AuthProvider>
-            <LoginModal navState={show} setNavState={setShow} />
-          </AuthProvider>
+          {/* <AuthProvider> */}
+          <LoginModal navState={show} setNavState={setShow} />
+          {/* </AuthProvider> */}
         </nav>
       </div>
     </motion.header>

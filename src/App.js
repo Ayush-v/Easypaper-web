@@ -12,46 +12,55 @@ import Courses from "./pages/Courses";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndServices from "./pages/TermsAndServices";
 import Module from "./pages/Module";
-import AuthProvider from "./contexts/AuthContext";
 import NotFound from "./pages/NotFound";
+import { ModalProvider } from "./contexts/ModalContext";
+import AuthProvider from "./contexts/AuthContext";
 
 function App() {
   return (
     <>
       <HelmetProvider>
-        <BrowserRouter>
-          <Navbar />
-          <ScrollToTop />
-          <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route exact path="/contact" element={<Contact />} />
-            <Route exact path="/:university/:id" element={<UniversityPage />} />
-            <Route
-              exact
-              path="/:university/:id/:coursename/:courseid"
-              element={<Courses />}
-            />
-            <Route
-              exact
-              path="/:university/:id/:coursename/:courseid/:module/:moduleid/:layout"
-              element={
-                <AuthProvider>
-                  <Module />
-                </AuthProvider>
-              }
-            />
-            <Route exact path="/joinus" element={<JoinUs />} />
-            <Route exact path="/govt" element={<GovtJobs />} />
-            <Route exact path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route
-              exact
-              path="/terms-and-services"
-              element={<TermsAndServices />}
-            />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          <Footer />
-        </BrowserRouter>
+        <AuthProvider>
+          <ModalProvider>
+            <BrowserRouter>
+              <Navbar />
+              <ScrollToTop />
+              <Routes>
+                <Route exact path="/" element={<Home />} />
+                <Route exact path="/contact" element={<Contact />} />
+                <Route
+                  exact
+                  path="/:university/:id"
+                  element={<UniversityPage />}
+                />
+                <Route
+                  exact
+                  path="/:university/:id/:coursename/:courseid"
+                  element={<Courses />}
+                />
+                <Route
+                  exact
+                  path="/:university/:id/:coursename/:courseid/:module/:moduleid/:layout"
+                  element={<Module />}
+                />
+                <Route exact path="/joinus" element={<JoinUs />} />
+                <Route exact path="/govt" element={<GovtJobs />} />
+                <Route
+                  exact
+                  path="/privacy-policy"
+                  element={<PrivacyPolicy />}
+                />
+                <Route
+                  exact
+                  path="/terms-and-services"
+                  element={<TermsAndServices />}
+                />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+              <Footer />
+            </BrowserRouter>
+          </ModalProvider>
+        </AuthProvider>
       </HelmetProvider>
     </>
   );

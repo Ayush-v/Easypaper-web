@@ -6,20 +6,21 @@ import { XIcon, ArrowRightIcon, LogoutIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import Logo from "./Logo";
+import { useModal } from "../contexts/ModalContext";
 
 const LoginModal = ({ navState, setNavState }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const { open, setOpen } = useModal();
   const [error, setError] = useState("");
 
   const { googleSignIn, facebookSignIn, currentUser, logout } = useAuth();
 
   function closeModal() {
-    setIsOpen(false);
+    setOpen(false);
   }
 
   function openModal() {
     setNavState(!navState);
-    setIsOpen(true);
+    setOpen(true);
   }
 
   const handleGoogleSignIn = async (e) => {
@@ -75,8 +76,7 @@ const LoginModal = ({ navState, setNavState }) => {
         <ModalButton state={openModal} />
       )}
       {error && error}
-
-      <Transition appear show={isOpen} as={Fragment}>
+      <Transition appear show={open} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
           <Transition.Child
             as={Fragment}

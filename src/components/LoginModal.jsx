@@ -5,7 +5,7 @@ import { ReactComponent as FacebookLogo } from "../assets/facebook.svg";
 import { XIcon, ArrowRightIcon, LogoutIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
-import { ReactComponent as Logo } from "../assets/easylogo.svg";
+import Logo from "./Logo";
 
 const LoginModal = ({ navState, setNavState }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -103,7 +103,7 @@ const LoginModal = ({ navState, setNavState }) => {
               >
                 <Dialog.Panel className="w-full max-w-md transform rounded-2xl bg-white p-6 text-center align-middle shadow-xl transition-all outline-none">
                   <div className="flex justify-start items-center gap-2">
-                    <Logo className="w-[42px]" />
+                    <Logo />
                     <h1 className="text-2xl">Easypaper</h1>
                   </div>
 

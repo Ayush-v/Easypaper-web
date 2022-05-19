@@ -11,7 +11,7 @@ const Contact = () => {
         <title>Contact | Easypaper</title>
       </Helmet>
       <div className="my-16 max-w-screen-lg mx-auto px-6 sm:py-24 py-14">
-        <h1 className="text-center text-6xl underline">
+        <h1 className="text-center text-5xl md:text-6xl">
           We’d Love to hear from you
         </h1>
         <div className="bg-gradient-to-br from-[#3675F0] to-[#2651A6] mt-10 p-6 sm:p-8 text-white rounded-3xl flex flex-col md:flex-row gap-16">
@@ -73,7 +73,7 @@ const Contact = () => {
               <div className="flex flex-col">
                 <label htmlFor="name">Your Name</label>
                 <div className="flex gap-3 px-2 py-4 border rounded-lg mt-2 group focus-within:border-[#3186D5] transition duration-200">
-                  <UserIcon className="w-6 h-6 group-focus:text-[#3186D5]" />
+                  <UserIcon className="w-6 h-6 group-focus:text-[#3186D5] opacity-70" />
                   <input
                     id="name"
                     type="text"
@@ -85,7 +85,7 @@ const Contact = () => {
               <div className="flex flex-col mt-3">
                 <label htmlFor="mobile">Mobile</label>
                 <div className="flex gap-3 px-2 py-4 border rounded-lg mt-2 group focus-within:border-[#3186D5] transition duration-200">
-                  <PhoneIcon className="w-6 h-6 group-focus:text-[#3186D5]" />
+                  <PhoneIcon className="w-6 h-6 group-focus:text-[#3186D5] opacity-70" />
                   <input
                     id="mobile"
                     type="tel"
@@ -97,7 +97,7 @@ const Contact = () => {
               <div className="flex flex-col mt-3">
                 <label htmlFor="mail">Mail</label>
                 <div className="flex gap-3 px-2 py-4 border rounded-lg mt-2 group focus-within:border-[#3186D5] transition duration-200">
-                  <MailOpenIcon className="w-6 h-6" />
+                  <MailOpenIcon className="w-6 h-6 opacity-70" />
                   <input
                     id="mail"
                     type="email"

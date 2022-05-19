@@ -5,7 +5,7 @@ import JoinUs from "./pages/JoinUs";
 import Contact from "./pages/Contact";
 import GovtJobs from "./pages/GovtJobs";
 import Home from "./pages/Home";
-import ScrollToTop from "./ScrollToTop";
+import ScrollToTop from "./components/ScrollToTop";
 import Footer from "./components/Footer";
 import UniversityPage from "./pages/UniversityPage";
 import Courses from "./pages/Courses";

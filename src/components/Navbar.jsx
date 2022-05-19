@@ -3,9 +3,9 @@ import { MenuAlt1Icon, XIcon } from "@heroicons/react/outline";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { Link as LinkS } from "react-scroll";
 import LoginModal from "./LoginModal";
-import logo from "../assets/logo.png";
 import AuthProvider from "../contexts/AuthContext";
 import { motion } from "framer-motion";
+import Logo from "./Logo";
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
@@ -20,7 +20,7 @@ const Navbar = () => {
     >
       <div className="flex justify-between items-center max-w-[1234px] mx-auto h-[60px] p-8">
         <Link to="/" className="flex items-center gap-2">
-          <img src={logo} alt="" className="max-w-[42px] rounded-[10px]" />
+          <Logo />
         </Link>
 
         <button

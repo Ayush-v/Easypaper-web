@@ -6,6 +6,7 @@ const Logo = () => {
       viewBox="0 0 42 42"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className="off"
     >
       <rect width="42" height="42" rx="10" fill="#3675F0" />
       <g filter="url(#filter0_d_113_8)">

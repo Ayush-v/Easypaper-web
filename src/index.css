@@ -71,3 +71,7 @@ body {
 .clipping {
   clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - 45px), 0% 100%);
 }
+
+.off {
+  -webkit-transform: translate3d(0, 0, 0);
+}

@@ -58,11 +58,16 @@ const LoginModal = ({ navState, setNavState }) => {
       {currentUser ? (
         <Popover className="relative">
           <Popover.Button>
-            <p>Welcome, {currentUser.displayName}</p>
+            {/* <p>Welcome, {currentUser.displayName}</p> */}
+            <img
+              src={currentUser.photoURL}
+              alt=""
+              className="w-8 h-8 rounded-full"
+            />
           </Popover.Button>
 
           <Popover.Panel className="absolute z-10">
-            <div className="grid grid-cols-2">
+            <div className="w-auto">
               <button onClick={handleLogout}>
                 <div className="flex items-center gap-1">
                   <h4>Log out</h4>

@@ -15,7 +15,7 @@ const Navbar = () => {
       className="fixed top-0 z-50 w-full mx-auto bg-white/[0.4] backdrop-blur-xl"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ delay: 0.5 }}
+      transition={{ duration: 1 }}
       viewport={{ once: true }}
     >
       <div className="flex justify-between items-center max-w-[1234px] mx-auto h-[60px] p-8">

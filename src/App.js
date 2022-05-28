@@ -1,7 +1,7 @@
-import React, { Suspense } from "react";
 import { HelmetProvider } from "react-helmet-async";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
 import JoinUs from "./pages/JoinUs";
 import Contact from "./pages/Contact";
 import GovtJobs from "./pages/GovtJobs";
@@ -16,7 +16,6 @@ import NotFound from "./pages/NotFound";
 import { ModalProvider } from "./contexts/ModalContext";
 import AuthProvider from "./contexts/AuthContext";
 import PrivateRoute from "./components/PrivateRoute";
-const LazyHome = React.lazy(() => import("./pages/Home"));
 
 function App() {
   return (
@@ -28,15 +27,7 @@ function App() {
               <Navbar />
               <ScrollToTop />
               <Routes>
-                <Route
-                  exact
-                  path="/"
-                  element={
-                    <Suspense>
-                      <LazyHome />
-                    </Suspense>
-                  }
-                />
+                <Route exact path="/" element={<Home />} />
                 <Route exact path="/contact" element={<Contact />} />
                 <Route
                   exact
@@ -48,15 +39,6 @@ function App() {
                   path="/:university/:id/:coursename/:courseid"
                   element={<Courses />}
                 />
-                {/* <Route
-                  exact
-                  path="/:university/:id/:coursename/:courseid/:module/:moduleid/:layout"
-                  element={
-                    <PrivateRoute>
-                      <Module />
-                    </PrivateRoute>
-                  }
-                /> */}
                 <Route
                   exact
                   path="/:university/:id/:coursename/:courseid/:module/:moduleid/:layout"

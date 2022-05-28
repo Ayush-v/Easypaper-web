@@ -1,9 +1,12 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Helmet } from "react-helmet-async";
-import DownloadAppSection from "../components/homeSection/DownloadAppSection";
 import Herosection from "../components/homeSection/Herosection";
 import Secondsection from "../components/homeSection/Secondsection";
 import Worksection from "../components/homeSection/Worksection";
+
+const DownloadAppSection = React.lazy(() =>
+  import("../components/homeSection/DownloadAppSection")
+);
 
 const Home = () => {
   return (
@@ -14,7 +17,9 @@ const Home = () => {
       <Herosection />
       <Secondsection />
       <Worksection />
-      <DownloadAppSection />
+      <Suspense>
+        <DownloadAppSection />
+      </Suspense>
     </div>
   );
 };

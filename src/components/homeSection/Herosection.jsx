@@ -64,7 +64,7 @@ const Herosection = () => {
             className="max-w-[1fr]"
             initial={{ opacity: 0, translateY: -50 }}
             animate={{ opacity: 1, translateY: 0 }}
-            transition={{ duration: 1.5 }}
+            transition={{ duration: 1 }}
           >
             <img src={Heroimage} alt="img" className="w-full h-auto max-w-lg" />
           </motion.div>

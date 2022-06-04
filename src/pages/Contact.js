@@ -14,9 +14,9 @@ const Contact = () => {
         <h1 className="text-center text-5xl md:text-6xl">
           We’d Love to hear from you
         </h1>
-        <div className="bg-gradient-to-br from-[#3675F0] to-[#2651A6] mt-10 p-6 sm:p-8 text-white rounded-3xl flex flex-col md:flex-row gap-16">
+        <div className="bg-gradient-to-br from-[#3675F0] to-[#2651A6] mt-10 sm:p-8 text-white rounded-3xl flex flex-col md:flex-row gap-16">
           <div className="md:w-1/2 h-auto flex flex-col justify-between">
-            <div>
+            <div className="m-6">
               <h1 className="text-3xl">
                 Feel free to get in touch with us in any convenient way
               </h1>
@@ -29,7 +29,7 @@ const Contact = () => {
               </p>
             </div>
 
-            <div>
+            <div className="m-6">
               <div className="flex items-center gap-3 mt-10 md:mt-0">
                 <PhoneIcon className="w-6 h-6" />
                 <a href="tel:" className="text-sm">
@@ -44,7 +44,7 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="mt-10 flex gap-10">
+            <div className="mt-10 flex gap-10 ml-6 mr-6">
               <a
                 href="https://www.instagram.com/easypaper.in/"
                 target="_blank"
@@ -68,40 +68,40 @@ const Contact = () => {
               </a>
             </div>
           </div>
-          <div className="bg-white text-black md:w-1/2 rounded-3xl p-6">
+          <div className="bg-white text-black md:w-1/2 rounded-3xl p-6 m-3 sm:m-6">
             <form autoComplete="off">
               <div className="flex flex-col">
                 <label htmlFor="name">Your Name</label>
-                <div className="flex gap-3 px-2 py-4 border rounded-lg mt-2 group focus-within:border-[#3186D5] transition duration-200">
-                  <UserIcon className="w-6 h-6 group-focus:text-[#3186D5] opacity-70" />
+                <div className="flex gap-3 border rounded-lg mt-2 group focus-within:border-[#3186D5] transition duration-200 items-center">
+                  <UserIcon className="w-6 h-6 group-focus:text-[#3186D5] opacity-70 ml-3" />
                   <input
                     id="name"
                     type="text"
-                    className="w-full h-full focus:outline-none"
+                    className="w-full h-full focus:outline-none px-2 py-4"
                     required
                   />
                 </div>
               </div>
               <div className="flex flex-col mt-3">
                 <label htmlFor="mobile">Mobile</label>
-                <div className="flex gap-3 px-2 py-4 border rounded-lg mt-2 group focus-within:border-[#3186D5] transition duration-200">
-                  <PhoneIcon className="w-6 h-6 group-focus:text-[#3186D5] opacity-70" />
+                <div className="flex gap-3 border rounded-lg mt-2 group focus-within:border-[#3186D5] transition duration-200 items-center">
+                  <PhoneIcon className="w-6 h-6 group-focus:text-[#3186D5] opacity-70 ml-3" />
                   <input
                     id="mobile"
                     type="tel"
-                    className="w-full h-full focus:outline-none"
+                    className="w-full h-full focus:outline-none px-2 py-4"
                     required
                   />
                 </div>
               </div>
               <div className="flex flex-col mt-3">
                 <label htmlFor="mail">Mail</label>
-                <div className="flex gap-3 px-2 py-4 border rounded-lg mt-2 group focus-within:border-[#3186D5] transition duration-200">
-                  <MailOpenIcon className="w-6 h-6 opacity-70" />
+                <div className="flex gap-3  border rounded-lg mt-2 group focus-within:border-[#3186D5] transition duration-200 items-center">
+                  <MailOpenIcon className="w-6 h-6 opacity-70 ml-3" />
                   <input
                     id="mail"
                     type="email"
-                    className="w-full h-full focus:outline-none"
+                    className="w-full h-full focus:outline-none px-2 py-4"
                     required
                   />
                 </div>
@@ -113,7 +113,7 @@ const Contact = () => {
                   className="w-full h-32 border rounded-lg px-2 py-2 mt-2"
                 />
               </div>
-              <button className="mt-6 bg-[#3E6ADB] px-5 py-4 rounded-xl text-white">
+              <button className="mt-6 bg-[#3E6ADB] px-5 py-4 rounded-xl text-white hover:scale-[0.98] active:scale-[0.97] transition duration-200">
                 Send Message
               </button>
             </form>

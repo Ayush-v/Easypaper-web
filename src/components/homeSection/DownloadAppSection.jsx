@@ -55,7 +55,7 @@ const DownloadAppSection = () => {
                 href="https://apps.apple.com/in/app/easypaper/id1490101799"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-6 ring-1 ring-gray-300 rounded-xl hover:ring-gray-700 transition duration-300 pl-4 pr-11 py-3 w-fit"
+                className="flex items-center gap-6 ring-1 ring-gray-300 rounded-xl hover:ring-gray-700 transition duration-300 pl-4 pr-11 py-3 w-fit hover:scale-[0.98] active:scale-[0.97]"
               >
                 <Appstore className="w-[44px] h-[44px]" />
                 <h1>App Store</h1>
@@ -64,7 +64,7 @@ const DownloadAppSection = () => {
                 href="https://play.google.com/store/apps/details?id=com.easy.paper&hl=en"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-6 ring-1 ring-gray-300 hover:ring-gray-700 transition duration-300 rounded-xl pl-4 pr-11 py-3 w-fit"
+                className="flex items-center gap-6 ring-1 ring-gray-300 hover:ring-gray-700 transition duration-300 rounded-xl pl-4 pr-11 py-3 w-fit hover:scale-[0.98] active:scale-[0.97]"
               >
                 <Playstore className="w-[44px] h-[44px]" />
                 <h1>Play Store</h1>

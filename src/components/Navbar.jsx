@@ -5,7 +5,6 @@ import { Link as LinkS } from "react-scroll";
 import LoginModal from "./LoginModal";
 import { motion } from "framer-motion";
 import Logo from "./Logo";
-import AuthProvider from "../contexts/AuthContext";
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
@@ -77,9 +76,7 @@ const Navbar = () => {
               Join Us
             </NavLink>
           </ul>
-          <AuthProvider>
-            <LoginModal navState={show} setNavState={setShow} />
-          </AuthProvider>
+          <LoginModal navState={show} setNavState={setShow} />
         </nav>
       </div>
     </motion.header>

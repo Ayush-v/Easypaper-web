@@ -57,20 +57,23 @@ const LoginModal = ({ navState, setNavState }) => {
     <>
       {currentUser ? (
         <Popover className="relative">
-          <Popover.Button>
-            {/* <p>Welcome, {currentUser.displayName}</p> */}
+          <Popover.Button className="flex justify-between gap-3 items-center m-3">
             <img
               src={currentUser.photoURL}
               alt=""
               className="w-8 h-8 rounded-full"
             />
+            <div className="text-left">
+              <p>{currentUser.displayName}</p>
+              <p className="text-sm opacity-60">{currentUser.email}</p>
+            </div>
           </Popover.Button>
 
-          <Popover.Panel className="absolute z-10">
-            <div className="w-auto">
+          <Popover.Panel className="bg-white shadow-lg absolute w-full rounded-xl p-4">
+            <div className="text-center">
               <button onClick={handleLogout}>
                 <div className="flex items-center gap-1">
-                  <h4>Log out</h4>
+                  <h4 className="">Log out</h4>
                   <LogoutIcon className="w-5 h-5" />
                 </div>
               </button>

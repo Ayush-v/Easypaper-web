@@ -7,6 +7,7 @@ import {
   UsersIcon,
   OfficeBuildingIcon,
   LocationMarkerIcon,
+  ChevronDownIcon,
 } from "@heroicons/react/outline";
 
 const FormSection = () => {
@@ -24,7 +25,7 @@ const FormSection = () => {
                 <div className="flex flex-col">
                   <label htmlFor="name">Your Name</label>
                   <div className="flex gap-3 border rounded-lg mt-2 group focus-within:border-[#3186D5] transition duration-200 items-center">
-                    <UserIcon className="w-6 h-6 group-focus:text-[#3186D5] opacity-70 ml-3" />
+                    <UserIcon className="w-6 h-6 group-focus-within:text-[#3186D5] group-focus-within:opacity-100 opacity-70 ml-3" />
                     <input
                       id="name"
                       type="text"
@@ -36,7 +37,7 @@ const FormSection = () => {
                 <div className="flex flex-col mt-3">
                   <label htmlFor="address">Address</label>
                   <div className="flex gap-3  border rounded-lg mt-2 group focus-within:border-[#3186D5] transition duration-200 items-center">
-                    <LocationMarkerIcon className="w-6 h-6 group-focus:text-[#3186D5] opacity-70 ml-3" />
+                    <LocationMarkerIcon className="w-6 h-6 group-focus-within:text-[#3186D5] group-focus-within:opacity-100 opacity-70 ml-3" />
                     <input
                       id="address"
                       type="text"
@@ -48,7 +49,7 @@ const FormSection = () => {
                 <div className="flex flex-col mt-3">
                   <label htmlFor="mail">Mail</label>
                   <div className="flex gap-3  border rounded-lg mt-2 group focus-within:border-[#3186D5] transition duration-200 items-center">
-                    <MailOpenIcon className="w-6 h-6 opacity-70 ml-3" />
+                    <MailOpenIcon className="w-6 h-6 opacity-70 ml-3 group-focus-within:text-[#3186D5] group-focus-within:opacity-100" />
                     <input
                       id="mail"
                       type="email"
@@ -60,7 +61,7 @@ const FormSection = () => {
                 <div className="flex flex-col mt-3">
                   <label htmlFor="city">City</label>
                   <div className="flex gap-3  border rounded-lg mt-2 group focus-within:border-[#3186D5] transition duration-200 items-center">
-                    <OfficeBuildingIcon className="w-6 h-6 opacity-70 ml-3" />
+                    <OfficeBuildingIcon className="w-6 h-6 opacity-70 ml-3 group-focus-within:text-[#3186D5] group-focus-within:opacity-100" />
                     <input
                       id="city"
                       type="text"
@@ -71,10 +72,10 @@ const FormSection = () => {
                 </div>
               </div>
               <div className="w-full">
-                <div className="flex flex-col mt-3">
+                <div className="flex flex-col mt-3 sm:mt-0">
                   <label htmlFor="mobile">Mobile</label>
                   <div className="flex gap-3 border rounded-lg mt-2 group focus-within:border-[#3186D5] transition duration-200 items-center">
-                    <PhoneIcon className="w-6 h-6 group-focus:text-[#3186D5] opacity-70 ml-3" />
+                    <PhoneIcon className="w-6 h-6 group-focus-within:text-[#3186D5] group-focus-within:opacity-100 opacity-70 ml-3" />
                     <input
                       id="mobile"
                       type="tel"
@@ -86,7 +87,7 @@ const FormSection = () => {
                 <div className="flex flex-col mt-3">
                   <label htmlFor="college">College</label>
                   <div className="flex gap-3 border rounded-lg mt-2 group focus-within:border-[#3186D5] transition duration-200 items-center">
-                    <AcademicCapIcon className="w-6 h-6 group-focus:text-[#3186D5] opacity-70 ml-3" />
+                    <AcademicCapIcon className="w-6 h-6 group-focus-within:text-[#3186D5] group-focus-within:opacity-100 opacity-70 ml-3" />
                     <input
                       id="college"
                       type="text"
@@ -98,7 +99,7 @@ const FormSection = () => {
                 <div className="flex flex-col mt-3">
                   <label htmlFor="classAndYear">Class & Year</label>
                   <div className="flex gap-3 border rounded-lg mt-2 group focus-within:border-[#3186D5] transition duration-200 items-center">
-                    <BookmarkAltIcon className="w-6 h-6 group-focus:text-[#3186D5] opacity-70 ml-3" />
+                    <BookmarkAltIcon className="w-6 h-6 group-focus-within:text-[#3186D5] group-focus-within:opacity-100 opacity-70 ml-3" />
                     <input
                       id="classAndYear"
                       type="text"
@@ -110,16 +111,17 @@ const FormSection = () => {
                 <div className="flex flex-col mt-3">
                   <label htmlFor="hear">How did you hear about us ?</label>
                   <div className="flex gap-3 border rounded-lg mt-2 group focus-within:border-[#3186D5] transition duration-200 items-center">
-                    <UsersIcon className="w-6 h-6 group-focus:text-[#3186D5] opacity-70 ml-3" />
+                    <UsersIcon className="w-6 h-6 opacity-70 ml-3 group-focus-within:text-[#3186D5] group-focus-within:opacity-100" />
                     <select
                       id="hear"
-                      className="w-full h-full focus:outline-none px-2 py-4 mr-4"
+                      className="w-full h-full focus:outline-none px-2 py-4 appearance-none"
                     >
                       <option value="Social">Social</option>
                       <option value="Google">Google</option>
                       <option value="friend">From a friend</option>
                       <option value="Other">Other</option>
                     </select>
+                    <ChevronDownIcon className="w-4 h-4 opacity-70 mr-4" />
                   </div>
                 </div>
               </div>

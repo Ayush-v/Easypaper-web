@@ -76,7 +76,7 @@ const Contact = () => {
               <div className="flex flex-col">
                 <label htmlFor="name">Your Name</label>
                 <div className="flex gap-3 border rounded-lg mt-2 group focus-within:border-[#3186D5] transition duration-200 items-center">
-                  <UserIcon className="w-6 h-6 group-focus:text-[#3186D5] opacity-70 ml-3" />
+                  <UserIcon className="w-6 h-6 group-focus-within:text-[#3186D5] group-focus-within:opacity-100 opacity-70 ml-3" />
                   <input
                     id="name"
                     type="text"
@@ -88,7 +88,7 @@ const Contact = () => {
               <div className="flex flex-col mt-3">
                 <label htmlFor="mobile">Mobile</label>
                 <div className="flex gap-3 border rounded-lg mt-2 group focus-within:border-[#3186D5] transition duration-200 items-center">
-                  <PhoneIcon className="w-6 h-6 group-focus:text-[#3186D5] opacity-70 ml-3" />
+                  <PhoneIcon className="w-6 h-6 group-focus-within:text-[#3186D5] group-focus-within:opacity-100 opacity-70 ml-3" />
                   <input
                     id="mobile"
                     type="tel"
@@ -100,7 +100,7 @@ const Contact = () => {
               <div className="flex flex-col mt-3">
                 <label htmlFor="mail">Mail</label>
                 <div className="flex gap-3  border rounded-lg mt-2 group focus-within:border-[#3186D5] transition duration-200 items-center">
-                  <MailOpenIcon className="w-6 h-6 opacity-70 ml-3" />
+                  <MailOpenIcon className="w-6 h-6 opacity-70 ml-3 group-focus-within:text-[#3186D5] group-focus-within:opacity-100" />
                   <input
                     id="mail"
                     type="email"

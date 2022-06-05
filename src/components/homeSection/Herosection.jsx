@@ -53,7 +53,7 @@ const Herosection = () => {
                   smooth={true}
                   spy={true}
                   duration={1000}
-                  className="text-lg text-white bg-black px-6 py-4 rounded-xl cursor-pointer"
+                  className="text-lg text-white bg-black px-6 py-4 rounded-xl cursor-pointer hover:-translate-y-1"
                 >
                   Download App
                 </LinkS>

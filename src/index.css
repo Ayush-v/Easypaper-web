@@ -65,7 +65,7 @@ body {
 
 .active {
   color: #2f5ce8;
-  border-bottom: 1px solid #2f5ce8;
+  border-bottom: 4px solid #2f5ce8;
 }
 
 .clipping {
@@ -74,4 +74,5 @@ body {
 
 .off {
   -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }

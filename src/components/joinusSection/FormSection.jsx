@@ -28,7 +28,7 @@ const FormSection = () => {
                     <input
                       id="name"
                       type="text"
-                      className="w-full h-full focus:outline-none px-2 py-4"
+                      className="w-full h-full focus:outline-none px-2 py-4 rounded-lg"
                       required
                     />
                   </div>
@@ -40,7 +40,7 @@ const FormSection = () => {
                     <input
                       id="address"
                       type="text"
-                      className="w-full h-full focus:outline-none px-2 py-4"
+                      className="w-full h-full focus:outline-none px-2 py-4 rounded-lg"
                       required
                     />
                   </div>
@@ -52,7 +52,7 @@ const FormSection = () => {
                     <input
                       id="mail"
                       type="email"
-                      className="w-full h-full focus:outline-none px-2 py-4"
+                      className="w-full h-full focus:outline-none px-2 py-4 rounded-lg"
                       required
                     />
                   </div>
@@ -64,7 +64,7 @@ const FormSection = () => {
                     <input
                       id="city"
                       type="text"
-                      className="w-full h-full focus:outline-none px-2 py-4"
+                      className="w-full h-full focus:outline-none px-2 py-4 rounded-lg"
                       required
                     />
                   </div>
@@ -78,7 +78,7 @@ const FormSection = () => {
                     <input
                       id="mobile"
                       type="tel"
-                      className="w-full h-full focus:outline-none px-2 py-4"
+                      className="w-full h-full focus:outline-none px-2 py-4 rounded-lg"
                       required
                     />
                   </div>
@@ -90,7 +90,7 @@ const FormSection = () => {
                     <input
                       id="college"
                       type="text"
-                      className="w-full h-full focus:outline-none px-2 py-4"
+                      className="w-full h-full focus:outline-none px-2 py-4 rounded-lg"
                       required
                     />
                   </div>
@@ -102,7 +102,7 @@ const FormSection = () => {
                     <input
                       id="classAndYear"
                       type="text"
-                      className="w-full h-full focus:outline-none px-2 py-4"
+                      className="w-full h-full focus:outline-none px-2 py-4 rounded-lg"
                       required
                     />
                   </div>

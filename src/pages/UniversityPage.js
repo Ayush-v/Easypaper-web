@@ -2,11 +2,32 @@ import React, { useState, Fragment, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Tab } from "@headlessui/react";
+import { motion } from "framer-motion";
 import Spinner from "../components/Spinner";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
+
+const container = {
+  hidden: {
+    opacity: 0,
+    translateY: 30,
+  },
+  show: {
+    opacity: 1,
+    translateY: 0,
+    transition: {
+      staggerChildren: 0.2,
+      when: "beforeChildren",
+    },
+  },
+};
+
+const item = {
+  hidden: { opacity: 0, translateY: 30 },
+  show: { opacity: 1, translateY: 0 },
+};
 
 const UniversityPage = () => {
   const { id, university } = useParams();
@@ -98,31 +119,40 @@ const UniversityPage = () => {
                 {coursesData &&
                   coursesData.course_types.map((index) => (
                     <Tab.Panel key={index.id}>
-                      {coursesData &&
-                        coursesData.courseList.map((index) => (
-                          <Link
-                            key={index.courseId}
-                            to={`/${university}/${id}/${index.name}/${index.courseId}`}
-                          >
-                            <div className="border-l-4 mb-5 rounded-[2px] border-gray-200 hover:border-[#3E6ADB] hover:-translate-x-1 hover:-translate-y-1  group transition duration-500 ease-in-out">
-                              <div className="bg-white shadow-md group-hover:shadow-lg px-4 py-4 ml-4 flex rounded-lg items-center gap-4">
-                                <img
-                                  src={index.small_icon}
-                                  alt="icon"
-                                  className="max-w-[60px] h-auto"
-                                />
-                                <div>
-                                  <h1 className="text-xl md:text-2xl">
-                                    {index.name}
-                                  </h1>
-                                  <p className="text-black/[0.55]">
-                                    rating: {index.rating}/5
-                                  </p>
+                      <motion.div
+                        variants={container}
+                        initial="hidden"
+                        animate="show"
+                      >
+                        {coursesData &&
+                          coursesData.courseList.map((index) => (
+                            <Link
+                              key={index.courseId}
+                              to={`/${university}/${id}/${index.name}/${index.courseId}`}
+                            >
+                              <motion.div
+                                variants={item}
+                                className="border-l-4 mb-5 rounded-[2px] border-gray-200 hover:border-[#3E6ADB] hover:-translate-x-1 hover:-translate-y-1  group transition duration-500 ease-in-out"
+                              >
+                                <div className="bg-white shadow-md group-hover:shadow-lg px-4 py-4 ml-4 flex rounded-lg items-center gap-4">
+                                  <img
+                                    src={index.small_icon}
+                                    alt="icon"
+                                    className="max-w-[60px] h-auto"
+                                  />
+                                  <div>
+                                    <h1 className="text-xl md:text-2xl">
+                                      {index.name}
+                                    </h1>
+                                    <p className="text-black/[0.55]">
+                                      rating: {index.rating}/5
+                                    </p>
+                                  </div>
                                 </div>
-                              </div>
-                            </div>
-                          </Link>
-                        ))}
+                              </motion.div>
+                            </Link>
+                          ))}
+                      </motion.div>
                     </Tab.Panel>
                   ))}
               </Tab.Panels>

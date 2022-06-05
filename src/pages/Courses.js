@@ -3,6 +3,28 @@ import { Helmet } from "react-helmet-async";
 import { useParams, Link } from "react-router-dom";
 import { LocationMarkerIcon } from "@heroicons/react/outline";
 import Spinner from "../components/Spinner";
+import { motion } from "framer-motion";
+
+const container = {
+  hidden: {
+    opacity: 0,
+    translateY: 30,
+  },
+  show: {
+    opacity: 1,
+    translateY: 0,
+    transition: {
+      duration: 0.5,
+      staggerChildren: 0.2,
+      when: "beforeChildren",
+    },
+  },
+};
+
+const item = {
+  hidden: { opacity: 0, translateY: 30 },
+  show: { opacity: 1, translateY: 0 },
+};
 
 const Courses = () => {
   const { university, courseid, id, coursename } = useParams();
@@ -67,7 +89,12 @@ const Courses = () => {
         {loading ? (
           <Loading />
         ) : (
-          <div className="mt-6">
+          <motion.div
+            className="mt-6"
+            variants={container}
+            initial="hidden"
+            animate="show"
+          >
             {data &&
               data.courseModules.map((index) => (
                 <Link
@@ -75,7 +102,10 @@ const Courses = () => {
                   to={`/${university}/${id}/${coursename}/${courseid}/${index.name}/${index.id}/${index.layout_type}`}
                   className="cursor-pointer"
                 >
-                  <div className="bg-white shadow-md rounded-lg mb-3 p-8 flex items-center gap-3 hover:shadow-lg hover:-translate-x-1 hover:-translate-y-1 transition duration-300 ease-in-out">
+                  <motion.div
+                    variants={item}
+                    className="bg-white shadow-md rounded-lg mb-3 p-8 flex items-center gap-3 hover:shadow-lg hover:-translate-x-1 hover:-translate-y-1 transition duration-300 ease-in-out"
+                  >
                     <img
                       src={index.icon}
                       alt="icon"
@@ -83,10 +113,10 @@ const Courses = () => {
                       style={{ background: `${index.background_color}` }}
                     />
                     <h3 className="text-xl">{index.name}</h3>
-                  </div>
+                  </motion.div>
                 </Link>
               ))}
-          </div>
+          </motion.div>
         )}
       </div>
     </>

@@ -40,7 +40,7 @@ const Navbar = () => {
           data-visible={show ? "true" : "false"}
           className="absolute top-12 right-6 md:relative md:top-0 md:right-0 flex flex-col items-center md:flex-row md:w-full w-52  shadow-lg rounded-lg mt-2 md:shadow-none divide-y md:divide-y-0 divide-gray-100 primary-navigation z-50 bg-white md:bg-transparent"
         >
-          <ul className="flex flex-col md:flex-row md:mx-auto md:gap-3 md:divide-y-0 divide-y divide-gray-100 w-full md:w-auto md:p-0 p-1">
+          <ul className="flex flex-col md:flex-row md:mx-auto md:gap-3 md:divide-y-0 divide-y divide-gray-100 w-full md:w-auto md:p-0 p-1 mb-2 md:mb-0">
             <UniLink show={show} setShow={setShow} />
             <NavLink
               to="/govt"
@@ -48,7 +48,7 @@ const Navbar = () => {
               className="px-4 py-4 try-test"
               style={({ isActive }) => ({
                 color: isActive ? "#2f5ce8" : "black",
-                borderBottom: isActive ? "1px solid #2f5ce8" : "none",
+                borderBottom: isActive ? "4px solid #2f5ce8" : "none",
               })}
             >
               Govt.Jobs
@@ -59,7 +59,7 @@ const Navbar = () => {
               className="px-4 py-4"
               style={({ isActive }) => ({
                 color: isActive ? "#2f5ce8" : "black",
-                borderBottom: isActive ? "1px solid #2f5ce8" : "none",
+                borderBottom: isActive ? "4px solid #2f5ce8" : "none",
               })}
             >
               Contact
@@ -70,7 +70,7 @@ const Navbar = () => {
               className="px-4 py-4"
               style={({ isActive }) => ({
                 color: isActive ? "#2f5ce8" : "black",
-                borderBottom: isActive ? "1px solid #2f5ce8" : "none",
+                borderBottom: isActive ? "4px solid #2f5ce8" : "none",
               })}
             >
               Join Us

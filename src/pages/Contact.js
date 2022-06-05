@@ -30,13 +30,13 @@ const Contact = () => {
             </div>
 
             <div className="m-6">
-              <div className="flex items-center gap-3 mt-10 md:mt-0">
+              <div className="flex items-center gap-3 mt-10 md:mt-0 hover:-translate-y-1 transition duration-200">
                 <PhoneIcon className="w-6 h-6" />
                 <a href="tel:" className="text-sm">
                   +91-8699443948
                 </a>
               </div>
-              <div className="flex items-center gap-3 mt-5">
+              <div className="flex items-center gap-3 mt-5 hover:-translate-y-1 transition duration-200">
                 <MailOpenIcon className="w-6 h-6" />
                 <a href="mailto:" className="text-sm">
                   easypaper.in@gmail.com
@@ -49,6 +49,7 @@ const Contact = () => {
                 href="https://www.instagram.com/easypaper.in/"
                 target="_blank"
                 rel="noreferrer"
+                className="hover:-translate-y-1 transition duration-300"
               >
                 <InstagramIcon className="w-6 h-6" />
               </a>
@@ -56,6 +57,7 @@ const Contact = () => {
                 href="https://www.facebook.com/easypaper.in"
                 target="_blank"
                 rel="noreferrer"
+                className="hover:-translate-y-1 transition duration-300"
               >
                 <FacebookIcon className="w-6 h-6" />
               </a>
@@ -63,6 +65,7 @@ const Contact = () => {
                 href="https://twitter.com/easypaperIN"
                 target="_blank"
                 rel="noreferrer"
+                className="hover:-translate-y-1 transition duration-300"
               >
                 <TwitterIcon className="w-6 h-6" />
               </a>
@@ -77,7 +80,7 @@ const Contact = () => {
                   <input
                     id="name"
                     type="text"
-                    className="w-full h-full focus:outline-none px-2 py-4"
+                    className="w-full h-full focus:outline-none px-2 py-4 rounded-lg"
                     required
                   />
                 </div>
@@ -89,7 +92,7 @@ const Contact = () => {
                   <input
                     id="mobile"
                     type="tel"
-                    className="w-full h-full focus:outline-none px-2 py-4"
+                    className="w-full h-full focus:outline-none px-2 py-4 rounded-lg"
                     required
                   />
                 </div>
@@ -101,7 +104,7 @@ const Contact = () => {
                   <input
                     id="mail"
                     type="email"
-                    className="w-full h-full focus:outline-none px-2 py-4"
+                    className="w-full h-full focus:outline-none px-2 py-4 rounded-lg"
                     required
                   />
                 </div>

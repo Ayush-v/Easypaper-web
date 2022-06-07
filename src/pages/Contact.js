@@ -5,6 +5,10 @@ import { ReactComponent as FacebookIcon } from "../assets/socialMediaIcons/faceb
 import { ReactComponent as InstagramIcon } from "../assets/socialMediaIcons/instagram.svg";
 
 const Contact = () => {
+  function submitContact(e) {
+    e.preventDefault();
+  }
+
   return (
     <>
       <Helmet>
@@ -72,7 +76,7 @@ const Contact = () => {
             </div>
           </div>
           <div className="bg-white text-black md:w-1/2 rounded-3xl p-6 m-3 sm:m-6">
-            <form autoComplete="off">
+            <form onSubmit={submitContact} autoComplete="off">
               <div className="flex flex-col">
                 <label htmlFor="name">Your Name</label>
                 <div className="flex gap-3 border rounded-lg mt-2 group focus-within:border-[#3186D5] transition duration-200 items-center">
@@ -116,7 +120,10 @@ const Contact = () => {
                   className="w-full h-32 border rounded-lg px-2 py-2 mt-2"
                 />
               </div>
-              <button className="mt-6 bg-[#3E6ADB] px-5 py-4 rounded-xl text-white hover:scale-[0.98] active:scale-[0.97] transition duration-200">
+              <button
+                type="submit"
+                className="mt-6 bg-[#3E6ADB] px-5 py-4 rounded-xl text-white hover:scale-[0.98] active:scale-[0.97] transition duration-200"
+              >
                 Send Message
               </button>
             </form>

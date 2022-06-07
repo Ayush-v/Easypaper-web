@@ -11,6 +11,10 @@ import {
 } from "@heroicons/react/outline";
 
 const FormSection = () => {
+  function submitInternDetails(e) {
+    e.preventDefault();
+  }
+
   return (
     <>
       <div className="max-w-screen-xl mx-auto sm:p-8 p-4 my-14">
@@ -19,7 +23,7 @@ const FormSection = () => {
         </h1>
 
         <div className="bg-white shadow-xl mt-5 text-black rounded-3xl p-6">
-          <form autoComplete="off">
+          <form onSubmit={submitInternDetails} autoComplete="off">
             <div className="flex flex-col sm:flex-row w-full justify-center items-center sm:gap-12">
               <div className="w-full">
                 <div className="flex flex-col">
@@ -133,7 +137,10 @@ const FormSection = () => {
                 className="w-full h-32 border rounded-lg px-2 py-2 mt-2"
               />
             </div>
-            <button className="mt-6 mx-auto bg-[#3E6ADB] px-10 py-4 rounded-xl text-white hover:scale-[0.98] active:scale-[0.97] transition duration-200">
+            <button
+              type="submit"
+              className="mt-6 mx-auto bg-[#3E6ADB] px-10 py-4 rounded-xl text-white hover:scale-[0.98] active:scale-[0.97] transition duration-200"
+            >
               Submit
             </button>
           </form>

@@ -18,9 +18,9 @@ const JoinUs = () => {
 
         <AimSection />
 
-        <IntroSection />
+        {/* <IntroSection />
 
-        <AchivedSection />
+        <AchivedSection /> */}
 
         <BenefitsSection />
 

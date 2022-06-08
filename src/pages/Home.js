@@ -12,6 +12,11 @@ const Home = () => {
   return (
     <div>
       <Helmet>
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1531124529061721"
+          crossorigin="anonymous"
+        ></script>
         <title>Home | Easypaper</title>
       </Helmet>
       <Herosection />

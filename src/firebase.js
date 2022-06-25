@@ -2,7 +2,7 @@ import firebase from "firebase/compat/app";
 import {
   getAuth,
   GoogleAuthProvider,
-  signInWithRedirect,
+  signInWithPopup,
   FacebookAuthProvider,
 } from "firebase/auth";
 
@@ -20,6 +20,6 @@ const app = firebase.initializeApp({
 
 export const googleAuth = googleProvider;
 export const facebookAuth = facebookProvider;
-export const popup = signInWithRedirect;
+export const popup = signInWithPopup;
 export const auth = getAuth(app);
 export default app;

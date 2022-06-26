@@ -1,4 +1,4 @@
-import illus from "../../assets/illustrations/joinus.png";
+import illus from "../../assets/illustrations/saly.png";
 
 const HeroSection = () => {
   return (

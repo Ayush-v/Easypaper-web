@@ -4,7 +4,11 @@ import { auth, googleAuth, facebookAuth, popup } from "../firebase";
 const AuthContext = createContext();
 
 export function useAuth() {
-  return useContext(AuthContext);
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error(`must be used withing the CountProvider`);
+  }
+  return context;
 }
 
 const AuthProvider = ({ children }) => {
@@ -37,12 +41,9 @@ const AuthProvider = ({ children }) => {
     googleSignIn,
     facebookSignIn,
     logout,
+    loading,
   };
-  return (
-    <AuthContext.Provider value={value}>
-      {!loading && children}
-    </AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
 
 export default AuthProvider;

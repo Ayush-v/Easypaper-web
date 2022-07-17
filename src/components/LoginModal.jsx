@@ -189,13 +189,19 @@ const LoginModal = ({ navState, setNavState }) => {
 export default LoginModal;
 
 const ModalButton = ({ state }) => {
+  const { loading } = useAuth();
+
   return (
-    <button
-      onClick={state}
-      className="group ring-1 hover:ring-2 ring-black  px-4 py-[10px] rounded-xl flex items-center gap-2 mb-3 md:mb-0 hover:-translate-y-[2px] active:translate-y-0 transition duration-[400ms]"
-    >
-      <p>Sign In</p>
-      <ArrowRightIcon className="w-5 h-5" />
-    </button>
+    <>
+      <button
+        onClick={state}
+        className="group ring-1 hover:ring-2 ring-black  px-4 py-[10px] rounded-xl flex items-center gap-2 mb-3 md:mb-0 hover:-translate-y-[2px] active:translate-y-0 transition duration-[400ms]"
+        disabled={loading ? true : false}
+      >
+        {loading ? <p>Signning in...</p> : <p>Sign In</p>}
+        {/* <p>{loading ? Singinin : Sign In}</p> */}
+        <ArrowRightIcon className="w-5 h-5" />
+      </button>
+    </>
   );
 };

@@ -8,7 +8,7 @@ const JoinUs = () => {
   return (
     <>
       <Helmet>
-        <title>Board | Easypaper</title>
+        <title>Join Us | Easypaper</title>
       </Helmet>
 
       <div>

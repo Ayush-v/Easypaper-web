@@ -14,9 +14,11 @@ export function useModal() {
 
 export const ModalProvider = ({ children }) => {
   const [open, setOpen] = useState(false);
+  const [error, setError] = useState(null);
+
+  const value = { open, setOpen, error, setError };
+
   return (
-    <ModalContext.Provider value={{ open, setOpen }}>
-      {children}
-    </ModalContext.Provider>
+    <ModalContext.Provider value={value}>{children}</ModalContext.Provider>
   );
 };

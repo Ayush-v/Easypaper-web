@@ -5,13 +5,18 @@ import { useModal } from "../contexts/ModalContext";
 
 const NavigateBack = () => {
   const navigate = useNavigate();
-  const { setOpen } = useModal();
+  const { setOpen, setError } = useModal();
 
   useEffect(() => {
     navigate(-1);
     setOpen(true);
-    console.log("'i fire once'");
-  }, [navigate, setOpen]);
+    // throw new Error("Please login first to access this content");
+    setError("Please login first to access content");
+
+    setTimeout(() => {
+      setError(null);
+    }, 5000);
+  }, [navigate, setError, setOpen]);
 
   return <></>;
 };

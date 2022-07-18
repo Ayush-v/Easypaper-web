@@ -2,7 +2,12 @@ import React, { useState, Fragment } from "react";
 import { Dialog, Transition, Popover } from "@headlessui/react";
 import { ReactComponent as GoogleLogo } from "../assets/google.svg";
 import { ReactComponent as FacebookLogo } from "../assets/facebook.svg";
-import { XIcon, ArrowRightIcon, LogoutIcon } from "@heroicons/react/outline";
+import {
+  XIcon,
+  ArrowRightIcon,
+  LogoutIcon,
+  ExclamationCircleIcon,
+} from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import Logo from "./Logo";
@@ -10,8 +15,8 @@ import { useModal } from "../contexts/ModalContext";
 import Spinner from "./Spinner";
 
 const LoginModal = ({ navState, setNavState }) => {
-  const { open, setOpen } = useModal();
-  const [error, setError] = useState("");
+  const { open, setOpen, error } = useModal();
+  const [dataError, setDataError] = useState(null);
 
   const { googleSignIn, facebookSignIn, currentUser, logout } = useAuth();
 
@@ -46,10 +51,10 @@ const LoginModal = ({ navState, setNavState }) => {
 
   async function handleLogout() {
     try {
-      setError("");
+      setDataError("");
       await logout();
     } catch (err) {
-      setError("Failed to log out");
+      setDataError("Failed to log out");
       console.log(err);
     }
   }
@@ -84,7 +89,8 @@ const LoginModal = ({ navState, setNavState }) => {
       ) : (
         <ModalButton state={openModal} />
       )}
-      {error && error}
+
+      {dataError && dataError}
       <Transition appear show={open} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
           <Transition.Child
@@ -167,7 +173,12 @@ const LoginModal = ({ navState, setNavState }) => {
                     </Link>
                     .
                   </p>
-
+                  {error ? (
+                    <div className="mt-3 bg-red-200 text-red-400 py-2 rounded-lg flex justify-center items-center gap-2">
+                      <ExclamationCircleIcon className="w-5 h-5" />
+                      {error}
+                    </div>
+                  ) : null}
                   <div className="absolute -top-3 -right-3 z-50">
                     <button
                       type="button"
@@ -197,10 +208,16 @@ const ModalButton = ({ state }) => {
       <button
         onClick={state}
         className="group ring-1 hover:ring-2 ring-black  px-4 py-[10px] rounded-xl flex items-center gap-2 mb-3 md:mb-0 hover:-translate-y-[2px] active:translate-y-0 transition duration-[400ms]"
-        disabled={loading ? true : false}
+        disabled={loading}
       >
-        {loading ? <Loading /> : <p>Sign In</p>}
-        {loading ? null : <ArrowRightIcon className="w-5 h-5" />}
+        {loading ? (
+          <Loading />
+        ) : (
+          <>
+            <p>Sign In</p>
+            <ArrowRightIcon className="w-5 h-5" />
+          </>
+        )}
       </button>
     </>
   );

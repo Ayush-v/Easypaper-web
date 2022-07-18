@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import Logo from "./Logo";
 import { useModal } from "../contexts/ModalContext";
+import Spinner from "./Spinner";
 
 const LoginModal = ({ navState, setNavState }) => {
   const { open, setOpen } = useModal();
@@ -198,10 +199,17 @@ const ModalButton = ({ state }) => {
         className="group ring-1 hover:ring-2 ring-black  px-4 py-[10px] rounded-xl flex items-center gap-2 mb-3 md:mb-0 hover:-translate-y-[2px] active:translate-y-0 transition duration-[400ms]"
         disabled={loading ? true : false}
       >
-        {loading ? <p>Signning in...</p> : <p>Sign In</p>}
-        {/* <p>{loading ? Singinin : Sign In}</p> */}
-        <ArrowRightIcon className="w-5 h-5" />
+        {loading ? <Loading /> : <p>Sign In</p>}
+        {loading ? null : <ArrowRightIcon className="w-5 h-5" />}
       </button>
     </>
   );
 };
+
+function Loading() {
+  return (
+    <div className="flex justify-center">
+      <Spinner />
+    </div>
+  );
+}

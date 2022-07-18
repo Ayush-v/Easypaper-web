@@ -1,5 +1,3 @@
-import React from "react";
-
 import { ReactComponent as Iphone } from "../../assets/downloadapp/iphone.svg";
 import { ReactComponent as Appstore } from "../../assets/downloadapp/appstore.svg";
 import { ReactComponent as Playstore } from "../../assets/downloadapp/playstore.svg";
@@ -38,14 +36,15 @@ const DownloadAppSection = () => {
             whileInView="show"
             viewport={{ once: true }}
           >
-            <motion.h1 variants={item} className="text-3xl ">
+            <motion.h1 className="text-3xl" variants={item}>
               Download Mobile App
             </motion.h1>
-            <motion.p variants={item} className="opacity-50 mt-2">
-              Download easy paper app on Android and IOS. For more features like
-              solved question papers,Important questions and many more...
-            </motion.p>
-
+            <motion.div variants={item}>
+              <p className="opacity-50 mt-2">
+                Download easy paper app on Android and IOS. For more features
+                like solved question papers,Important questions and many more...
+              </p>
+            </motion.div>
             <motion.div
               variants={item}
               className="mt-6 flex flex-col items-start gap-5"

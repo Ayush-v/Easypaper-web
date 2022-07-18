@@ -48,7 +48,7 @@ const Navbar = () => {
               className="px-4 py-4 try-test"
               style={({ isActive }) => ({
                 color: isActive ? "#2f5ce8" : "black",
-                borderBottom: isActive ? "4px solid #2f5ce8" : "none",
+                fontWeight: isActive ? "600" : "400",
               })}
             >
               Govt.Jobs
@@ -59,7 +59,7 @@ const Navbar = () => {
               className="px-4 py-4"
               style={({ isActive }) => ({
                 color: isActive ? "#2f5ce8" : "black",
-                borderBottom: isActive ? "4px solid #2f5ce8" : "none",
+                fontWeight: isActive ? "600" : "400",
               })}
             >
               Contact
@@ -70,7 +70,7 @@ const Navbar = () => {
               className="px-4 py-4"
               style={({ isActive }) => ({
                 color: isActive ? "#2f5ce8" : "black",
-                borderBottom: isActive ? "4px solid #2f5ce8" : "none",
+                fontWeight: isActive ? "600" : "400",
               })}
             >
               Join Us

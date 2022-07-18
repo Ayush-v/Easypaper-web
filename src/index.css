@@ -65,7 +65,7 @@ body {
 
 .active {
   color: #2f5ce8;
-  border-bottom: 4px solid #2f5ce8;
+  font-weight: 600;
 }
 
 .clipping {
